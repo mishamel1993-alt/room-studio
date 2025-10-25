@@ -1,36 +1,51 @@
-export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+// api/tgwebhook.js
+export const config = { runtime: 'edge' }; // быстрый отклик на Vercel Edge
+
+async function sendMessage(token, chatId, text, extra = {}) {
+  const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text, ...extra })
+  });
+  return r.json();
+}
+
+export default async function handler(req) {
+  if (req.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
+  }
 
   const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-  if (!TOKEN || !CHAT_ID) return res.status(500).json({ error: 'Missing bot token or chat ID' });
+  if (!TOKEN) return new Response('No token', { status: 500 });
 
-  try {
-    const { name, contact, service, comment, page, ts } = req.body || {};
+  const update = await req.json();
+  const msg = update.message || update.edited_message;
+  if (!msg) return new Response('ok'); // неинтересное событие
 
-    const text =
-`🎧 Новая заявка — РУМ СТУДИО
-Имя: ${name}
-Контакт: ${contact}
-Услуга: ${service || '-'}
-Комментарий: ${comment || '-'}
-Страница: ${page || '-'}
-Время: ${ts || new Date().toISOString()}`;
+  const chatId = msg.chat.id;
+  const textIn = (msg.text || '').trim();
 
-    const tgRes = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text })
-    });
+  // Сообщение-ответ (соцсети РУМ СТУДИО)
+  const reply =
+`Спасибо! Мы свяжемся с вами в ближайшее время 🙌
 
-    const data = await tgRes.json(); // читаем ответ TG
-    if (!data.ok) {
-      // отдаём точное описание ошибки в ответ (увидишь в Network → Response)
-      return res.status(500).json({ ok:false, error: data.description || 'Telegram API error' });
-    }
-    return res.status(200).json({ ok:true });
-  } catch (e) {
-    return res.status(500).json({ ok:false, error: e?.message || 'unknown' });
+Пока можно заглянуть к нам в соцсети:
+• YouTube: https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q
+• VK: https://vk.com/room_sound
+• Instagram*: https://www.instagram.com/room.studio15/
+• Telegram: https://t.me/room_studio15
+
+Телефон: +7 985 925-38-08
+Адрес: г. Подольск, ул. Дружбы, д. 15
+
+*Запрещённая в РФ организация Meta**`;
+
+  // На /start (с любыми параметрами) и на любое первое сообщение — присылаем автоответ
+  if (textIn.startsWith('/start') || textIn.length > 0) {
+    await sendMessage(TOKEN, chatId, reply);
   }
+
+  return new Response('ok');
 }
+
 
