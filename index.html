@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>РУМ СТУДИО — запись, сведение, мастеринг в Подольске</title>
+  <meta name="description" content="РУМ СТУДИО — студия звукозаписи в Подольске. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и точный звук." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--rum:#00ff88}
+    body{background:#0b0f0d;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12)}
+    .btn{display:inline-block;padding:.8rem 1.2rem;border-radius:14px;font-weight:700}
+    .btn-primary{background:var(--rum);color:#07120b;box-shadow:0 8px 30px rgba(0,255,136,.3)}
+    .btn-outline{border:1px solid rgba(255,255,255,.2)}
+    .input{width:100%;padding:.7rem .9rem;border-radius:12px;background:#00000066;border:1px solid #ffffff26;outline:none}
+    .input:focus{border-color:var(--rum)}
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 glass">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl" style="background:var(--rum)"></div>
+        <div>
+          <div class="text-lg font-extrabold">РУМ СТУДИО</div>
+          <div class="text-xs text-white/60 -mt-1">Запись • Сведение • Мастеринг</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#services" class="hover:text-[var(--rum)]">Услуги</a>
+        <a href="#booking" class="btn btn-primary">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4">
+    <section class="py-14 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Звук, который <span class="text-[var(--rum)]">чувствуется</span></h1>
+        <p class="mt-4 text-white/70">Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Быстро, прозрачно и по-взрослому.</p>
+        <div class="mt-6 flex gap-3">
+          <a class="btn btn-primary" href="#booking">Записаться</a>
+          <a class="btn btn-outline" href="https://t.me/room_studio15" target="_blank">Telegram</a>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden glass">
+        <div class="aspect-video bg-black/60">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/_K1p2wUo9Hw" title="ROOM STUDIO Promo" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-10 border-t border-white/10">
+      <h2 class="text-3xl font-extrabold mb-6">Услуги</h2>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="glass rounded-2xl p-5"><div class="text-xl font-semibold">Запись вокала</div><p class="text-white/70 mt-2">Студийные микрофоны, тихая комната, комфортная атмосфера.</p></div>
+        <div class="glass rounded-2xl p-5"><div class="text-xl font-semibold">Сведение</div><p class="text-white/70 mt-2">Баланс, глубина, ширина — готовим к релизу.</p></div>
+        <div class="glass rounded-2xl p-5"><div class="text-xl font-semibold">Мастеринг</div><p class="text-white/70 mt-2">Громкость без перегруза под DSP и радио.</p></div>
+      </div>
+    </section>
+
+    <section id="booking" class="py-14 border-t border-white/10">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl font-extrabold">Записаться в РУМ СТУДИО</h2>
+          <p class="text-white/70 mt-2">Ответим в Telegram, согласуем время и задачу.</p>
+          <ul class="mt-4 text-white/70 text-sm space-y-1">
+            <li>• Первым клиентам — мягкая скидка</li>
+            <li>• Пакеты услуг выгоднее</li>
+            <li>• Быстрая связь в Telegram</li>
+          </ul>
+        </div>
+
+        <div>
+          <form id="leadForm" class="glass rounded-2xl p-6 space-y-4">
+            <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+            <div>
+              <label class="text-sm text-white/70">Имя</label>
+              <input class="input" name="name" placeholder="Ваше имя" required>
+            </div>
+            <div>
+              <label class="text-sm text-white/70">Телефон или Telegram</label>
+              <input class="input" name="contact" placeholder="@username или +7" required>
+            </div>
+            <div>
+              <label class="text-sm text-white/70">Услуга</label>
+              <select class="input" name="service">
+                <option>Запись вокала</option>
+                <option>Сведение</option>
+                <option>Мастеринг</option>
+                <option>Минус на заказ</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm text-white/70">Комментарий</label>
+              <textarea class="input" name="comment" rows="3" placeholder="Коротко о задаче и желаемой дате"></textarea>
+            </div>
+            <button id="leadSubmit" class="btn btn-primary w-full" type="submit">Отправить заявку</button>
+            <p id="leadHint" class="text-xs text-white/60">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+          </form>
+
+          <!-- сюда после успеха добавим ссылку на бота -->
+          <div id="tgConfirm" class="mt-3 text-sm text-white/80"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-white/60 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
+      <div>© <span id="year"></span> РУМ СТУДИО, Подольск</div>
+      <div class="flex gap-4">
+        <a href="https://vk.com/room_sound" target="_blank" class="hover:text-white">VK</a>
+        <a href="https://www.instagram.com/room.studio15/" target="_blank" class="hover:text-white">Instagram*</a>
+        <a href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q" target="_blank" class="hover:text-white">YouTube</a>
+        <a href="https://t.me/room_studio15" target="_blank" class="hover:text-white">Telegram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('leadForm');
+    const btn  = document.getElementById('leadSubmit');
+    const hint = document.getElementById('leadHint');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      // honeypot
+      if ((fd.get('website') || '').trim() !== '') return;
+
+      const payload = {
+        name:    (fd.get('name')||'').toString().trim(),
+        contact: (fd.get('contact')||'').toString().trim(),
+        service: (fd.get('service')||'').toString(),
+        comment: (fd.get('comment')||'').toString().trim(),
+        page:    location.href,
+        ts:      new Date().toISOString()
+      };
+
+      btn.disabled = true;
+      btn.textContent = 'Отправляем…';
+      hint.textContent = '';
+
+      try {
+        const res = await fetch('/api/telegram', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (res.ok && data?.ok) {
+          form.reset();
+          hint.textContent = '✅ Спасибо! Заявка отправлена. Мы свяжемся с вами в Telegram.';
+          const box = document.getElementById('tgConfirm');
+          box.innerHTML = 'Чтобы получить мгновенное подтверждение, нажмите: ' +
+            '<a class="inline-block mt-2 px-3 py-2 rounded-lg font-semibold text-black" ' +
+            'style="background:var(--rum)" href="https://t.me/Room_st_bot?start=lead" target="_blank" rel="noopener">Открыть бота</a>';
+        } else {
+          throw new Error(data?.error || 'Ошибка отправки');
+        }
+      } catch (err) {
+        console.error(err);
+        hint.innerHTML = '⚠️ Не удалось отправить. Напишите нам в Telegram: ' +
+          '<a class="underline" href="https://t.me/room_studio15" target="_blank">@room_studio15</a>';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Отправить заявку';
+      }
+    });
+  </script>
+</body>
+</html>
