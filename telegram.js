@@ -1,42 +1,36 @@
-// api/telegram.js
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).send('Method Not Allowed');
-  }
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+
+  const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+  if (!TOKEN || !CHAT_ID) return res.status(500).json({ error: 'Missing bot token or chat ID' });
 
   try {
     const { name, contact, service, comment, page, ts } = req.body || {};
-    if (!name || !contact) {
-      return res.status(400).json({ ok: false, error: 'Missing required fields' });
-    }
 
-    const token = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
-
-    const text = `
-🎧 Новая заявка — РУМ СТУДИО
+    const text =
+`🎧 Новая заявка — РУМ СТУДИО
 Имя: ${name}
 Контакт: ${contact}
 Услуга: ${service || '-'}
 Комментарий: ${comment || '-'}
 Страница: ${page || '-'}
-Время: ${ts || new Date().toISOString()}
-    `;
+Время: ${ts || new Date().toISOString()}`;
 
-    const tgResponse = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const tgRes = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text })
     });
 
-    if (!tgResponse.ok) {
-      const body = await tgResponse.text();
-      return res.status(500).json({ ok: false, error: body });
+    const data = await tgRes.json(); // читаем ответ TG
+    if (!data.ok) {
+      // отдаём точное описание ошибки в ответ (увидишь в Network → Response)
+      return res.status(500).json({ ok:false, error: data.description || 'Telegram API error' });
     }
-
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Telegram error:', err);
-    return res.status(500).json({ ok: false, error: err.message });
+    return res.status(200).json({ ok:true });
+  } catch (e) {
+    return res.status(500).json({ ok:false, error: e?.message || 'unknown' });
   }
 }
+
