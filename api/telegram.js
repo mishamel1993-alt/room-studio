@@ -1,41 +1,46 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).send('Method Not Allowed');
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+  if (!TOKEN || !CHAT_ID) {
+    return res.status(500).json({ error: 'Missing bot token or chat ID' });
   }
 
   try {
-    const { name, contact, service, comment, page, ts } = req.body || {};
-    if (!name || !contact) {
-      return res.status(400).json({ ok: false, error: 'Missing required fields' });
-    }
-
-    const token = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const { name, contact, service, comment, page, ts } = req.body;
 
     const text = `
-🎧 Новая заявка — РУМ СТУДИО
-Имя: ${name}
-Контакт: ${contact}
-Услуга: ${service || '-'}
-Комментарий: ${comment || '-'}
-Страница: ${page || '-'}
-Время: ${ts || new Date().toISOString()}
-    `;
+💬 Новая заявка с сайта РУМ СТУДИО:
+━━━━━━━━━━━━━━
+👤 Имя: ${name}
+📱 Контакт: ${contact}
+🎧 Услуга: ${service}
+📝 Комментарий: ${comment || '-'}
+🌐 Страница: ${page}
+🕓 Время: ${new Date(ts).toLocaleString('ru-RU')}
+`;
 
-    const tgResponse = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const sendUrl = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+    const response = await fetch(sendUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
+      body: JSON.stringify({ chat_id: CHAT_ID, text }),
     });
 
-    if (!tgResponse.ok) {
-      const body = await tgResponse.text();
-      return res.status(500).json({ ok: false, error: body });
+    const data = await response.json();
+
+    if (!data.ok) {
+      throw new Error(data.description || 'Telegram API error');
     }
 
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Telegram error:', err);
-    return res.status(500).json({ ok: false, error: err.message });
+    res.status(200).json({ ok: true });
+  } catch (error) {
+    console.error('Telegram error:', error);
+    res.status(500).json({ ok: false, error: error.message });
   }
 }
+
