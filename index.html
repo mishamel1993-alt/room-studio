@@ -348,7 +348,10 @@
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
         });
         const data = await res.json();
-        if (data.ok) { form.reset(); hint.textContent = '✅ Спасибо! Заявка отправлена. Мы свяжемся с вами в Telegram.'; }
+        if (data.ok) {
+          form.reset();
+          hint.innerHTML = '✅ Заявка отправлена. <br>Чтобы получить подтверждение в Telegram, нажмите: <a class="inline-block mt-2 px-3 py-2 rounded-lg bg-[var(--rum-green)] text-black font-semibold" href="https://t.me/Room_st_bot?start=lead" target="_blank" rel="noopener">Открыть бота</a>';
+        }
         else { throw new Error(data.error||'Ошибка отправки'); }
       } catch (err) {
         hint.innerHTML = '⚠️ Не удалось отправить. Напишите нам в Telegram: <a class="text-[var(--rum-green)]" href="https://t.me/room_studio15" target="_blank">@room_studio15</a>'; console.error(err);
@@ -357,6 +360,7 @@
   </script>
 </body>
 </html>
+
 
 
 
