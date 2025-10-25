@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>РУМ СТУДИО — запись, сведение, мастеринг в Подольске</title>
+  <meta name="description" content="РУМ СТУДИО — студия звукозаписи в Подольске. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Тёплая атмосфера и профессиональный звук." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--rum-green:#00ff88;--rum-bg:#0b0f0d}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    .glass{backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,0.04);}
+    .grid-highlight{background:radial-gradient(600px 200px at 70% -20%, rgba(0,255,136,.20), transparent 70%),radial-gradient(600px 200px at -10% 120%, rgba(0,255,136,.12), transparent 70%);} 
+    .btn{display:inline-block;padding:.8rem 1.2rem;border-radius:1rem;font-weight:600}
+    .btn-primary{background:var(--rum-green);color:#07130e;box-shadow:0 8px 30px rgba(0,255,136,.3)}
+    .btn-outline{border:1px solid rgba(255,255,255,.18)}
+    .badge{border:1px solid rgba(255,255,255,.18);padding:.25rem .6rem;border-radius:9999px;font-size:.75rem}
+  </style>
+  <!-- OpenGraph -->
+  <meta property="og:title" content="РУМ СТУДИО — запись, сведение, мастеринг в Подольске">
+  <meta property="og:description" content="Ламповая атмосфера, точный звук, быстрый результат. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico">
+  <!-- JSON-LD: локальный бизнес -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicRecordingStudio",
+    "name": "РУМ СТУДИО",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Подольск",
+      "streetAddress": "ул. Дружбы, д. 15",
+      "addressCountry": "RU"
+    },
+    "url": "https://rumstudio.ru",
+    "sameAs": [
+      "https://t.me/room_studio15",
+      "https://vk.com/room_sound",
+      "https://www.instagram.com/room.studio15/",
+      "https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q"
+    ],
+    "priceRange": "₽₽",
+    "openingHours": "Mo-Su 10:00-22:00",
+    "telephone": "+7 985 925-38-08",
+    "email": "roomstudio15@yandex.com",
+    "description": "Запись вокала, сведение, мастеринг, минуса на заказ"
+  }
+  </script>
+</head>
+<body class="bg-[var(--rum-bg)] text-white">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/40 glass">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="h-9 w-9 rounded-2xl bg-[var(--rum-green)]"></div>
+        <div>
+          <div class="text-lg font-extrabold tracking-tight">РУМ СТУДИО</div>
+          <div class="text-xs text-white/60 -mt-1">Запись • Сведение • Мастеринг</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-[var(--rum-green)]">Услуги</a>
+        <a href="#pricing" class="hover:text-[var(--rum-green)]">Цены</a>
+        <a href="#works" class="hover:text-[var(--rum-green)]">Работы</a>
+        <a href="#studio" class="hover:text-[var(--rum-green)]">Студия</a>
+        <a href="#faq" class="hover:text-[var(--rum-green)]">FAQ</a>
+        <a href="#contacts" class="hover:text-[var(--rum-green)]">Контакты</a>
+        <a href="#booking" class="btn btn-primary">Записаться</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/15 p-2">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/70">
+      <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#services">Услуги</a>
+        <a href="#pricing">Цены</a>
+        <a href="#works">Работы</a>
+        <a href="#studio">Студия</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#booking" class="btn btn-primary text-center">Записаться</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden grid-highlight">
+    <div class="mx-auto max-w-7xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="badge text-white/80">Подольск · Россия</span>
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
+          Звук, который <span class="text-[var(--rum-green)]">чувствуется</span>
+        </h1>
+        <p class="mt-5 text-white/70 text-lg md:text-xl">РУМ СТУДИО — ламповая атмосфера, точный звук, быстрый результат. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ.</p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#booking" class="btn btn-primary">Записаться</a>
+          <a href="#works" class="btn btn-outline">Послушать работы</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-white/60 text-sm">
+          <div class="flex items-center gap-2"><span class="h-2 w-2 bg-[var(--rum-green)] rounded-full animate-pulse"></span> Свободные слоты на этой неделе</div>
+          <div class="hidden md:block">·</div>
+          <div>Первым клиентам — бонусы</div>
+        </div>
+      </div>
+      <div>
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <div class="aspect-video bg-black/50 flex items-center justify-center">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_K1p2wUo9Hw" title="Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 to-transparent"></div>
+          <div class="absolute left-4 bottom-4 badge bg-black/40 border-white/10">Промо‑ролик · 1 минута</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 border-top border-white/10">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mb-10 flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Услуги</h2>
+          <p class="text-white/60 mt-2">Прозрачно по ценам, по‑взрослому по звуку.</p>
+        </div>
+        <a href="#pricing" class="text-sm text-[var(--rum-green)]">Смотреть цены →</a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="glass rounded-2xl p-5 border border-white/10">
+          <div class="text-xl font-semibold">Запись вокала</div>
+          <p class="text-white/60 mt-2">Микрофоны студкласса, тихая комната, тёплый приём.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-white/10">
+          <div class="text-xl font-semibold">Сведение</div>
+          <p class="text-white/60 mt-2">Баланс, глубина, ширина. Делаем трек конкурентным.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-white/10">
+          <div class="text-xl font-semibold">Мастеринг</div>
+          <p class="text-white/60 mt-2">Громкость без перегруза. Готово к площадкам и радио.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-white/10">
+          <div class="text-xl font-semibold">Минуса на заказ</div>
+          <p class="text-white/60 mt-2">От идеи до аранжировки под твой голос и стиль.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Цены</h2>
+      <p class="text-white/60 mt-2">Честно и понятно. Спецусловия при пакетах.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-white/10 p-6 glass">
+          <div class="badge">Запись</div>
+          <h3 class="mt-3 text-2xl font-bold">от 1000 ₽ / час</h3>
+          <ul class="mt-4 space-y-2 text-white/70 text-sm">
+            <li>Тихая комната и поп‑фильтр</li>
+            <li>Помощь в разогреве и дублях</li>
+            <li>Контрольные слушания</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline mt-6">Записаться</a>
+        </div>
+        <div class="rounded-2xl border-2 border-[var(--rum-green)] p-6 bg-black/50 shadow-2xl">
+          <div class="badge border-[var(--rum-green)]/40">Сведение</div>
+          <h3 class="mt-3 text-2xl font-bold">от 5000 ₽ / трек</h3>
+          <ul class="mt-4 space-y-2 text-white/70 text-sm">
+            <li>Баланс, эквализация, компрессия</li>
+            <li>2 правки включены</li>
+            <li>Форматы WAV/MP3/Stem</li>
+          </ul>
+          <a href="#booking" class="btn btn-primary mt-6">Заказать</a>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 glass">
+          <div class="badge">Мастеринг</div>
+          <h3 class="mt-3 text-2xl font-bold">от 2500 ₽ / трек</h3>
+          <ul class="mt-4 space-y-2 text-white/70 text-sm">
+            <li>Лимитирование без клиппинга</li>
+            <li>Подготовка под DSP/Radio</li>
+            <li>1 правка включена</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline mt-6">Заказать</a>
+        </div>
+      </div>
+      <p class="text-white/50 text-xs mt-4">* Пакеты “Запись + Сведение + Мастеринг” — выгоднее. Спросите про условия.</p>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section id="works" class="py-20 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-end justify-between">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Работы</h2>
+          <p class="text-white/60 mt-2">Фрагменты до/после и релизы клиентов.</p>
+        </div>
+        <a href="#booking" class="text-sm text-[var(--rum-green)]">Хочу так же →</a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- Карточка работы -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 glass">
+          <div class="aspect-video bg-black/40 flex items-center justify-center text-white/50">Видео/обложка</div>
+          <div class="p-4">
+            <div class="font-semibold">Кейс: RAP · До/после</div>
+            <audio controls class="w-full mt-2">
+              <source src="" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/10 glass">
+          <div class="aspect-video bg-black/40 flex items-center justify-center text-white/50">Видео/обложка</div>
+          <div class="p-4">
+            <div class="font-semibold">Кейс: Pop · Релиз</div>
+            <audio controls class="w-full mt-2">
+              <source src="" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-white/10 glass">
+          <div class="aspect-video bg-black/40 flex items-center justify-center text-white/50">Видео/обложка</div>
+          <div class="p-4">
+            <div class="font-semibold">Кейс: Rock • Живой вокал</div>
+            <audio controls class="w-full mt-2">
+              <source src="" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio gallery -->
+  <section id="studio" class="py-20 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Студия</h2>
+    <p class="text-white/60 mt-2">Небольшое помещение 14 м² — идеальный контроль и ламповая близость к музыке.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop" alt="Студия 1"/>
+        <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1548022960-5bb5e44cebb3?q=80&w=1200&auto=format&fit=crop" alt="Студия 2"/>
+        <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop" alt="Студия 3"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section id="booking" class="py-20 border-t border-white/10 grid-highlight">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Записаться в РУМ СТУДИО</h2>
+        <p class="text-white/70 mt-2">Выберите дату и опишите задачу — мы вернёмся с подтверждением и слотом.</p>
+        <ul class="mt-4 space-y-2 text-white/70 text-sm">
+          <li>• Первым клиентам — мягкая скидка</li>
+          <li>• Пакеты выгоднее (Запись+Сведение+Мастеринг)</li>
+          <li>• Telegram/WhatsApp для быстрой связи</li>
+        </ul>
+      </div>
+      <form class="glass rounded-2xl p-6 border border-white/10 space-y-4" onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся в Telegram.');">
+        <div>
+          <label class="text-sm text-white/70">Имя</label>
+          <input class="mt-1 w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 outline-none focus:border-[var(--rum-green)]" placeholder="Ваше имя" required>
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Телефон или Telegram</label>
+          <input class="mt-1 w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 outline-none focus:border-[var(--rum-green)]" placeholder="@username или +7" required>
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Услуга</label>
+          <select class="mt-1 w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 outline-none focus:border-[var(--rum-green)]">
+            <option>Запись вокала</option>
+            <option>Сведение</option>
+            <option>Мастеринг</option>
+            <option>Минус на заказ</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-sm text-white/70">Комментарий</label>
+          <textarea rows="3" class="mt-1 w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 outline-none focus:border-[var(--rum-green)]" placeholder="Коротко о задаче и желаемой дате"></textarea>
+        </div>
+        <button class="btn btn-primary w-full">Отправить заявку</button>
+        <p class="text-xs text-white/50">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 border-t border-white/10">
+    <div class="mx-auto max-w-5xl px-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">FAQ</h2>
+      <div class="mt-8 space-y-3">
+        <details class="glass rounded-2xl p-5 border border-white/10">
+          <summary class="cursor-pointer font-semibold">Можно ли прийти без опыта записи?</summary>
+          <p class="mt-2 text-white/70">Да. Поможем с разогревом, дыханием, дублями и поведём по процессу.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 border border-white/10">
+          <summary class="cursor-pointer font-semibold">Сколько правок включено?</summary>
+          <p class="mt-2 text-white/70">В сведение включено 2 правки, в мастеринг — 1. Дополнительные — по договорённости.</p>
+        </details>
+        <details class="glass rounded-2xl p-5 border border-white/10">
+          <summary class="cursor-pointer font-semibold">Можно ли подарочный сертификат?</summary>
+          <p class="mt-2 text-white/70">Да, у нас есть цифровые сертификаты на запись и на сведение.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="py-20 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Контакты</h2>
+        <p class="text-white/70 mt-2">г. Подольск, ул. Дружбы, д. 15 · ежедневно 10:00–22:00</p>
+        <div class="mt-6 space-y-2 text-white/80">
+          <div>Телеграм: <a class="text-[var(--rum-green)]" href="https://t.me/room_studio15" target="_blank">@room_studio15</a></div>
+          <div>WhatsApp: <a class="text-[var(--rum-green)]" href="https://wa.me/79859253808" target="_blank">написать</a></div>
+          <div>VK: <a class="text-[var(--rum-green)]" href="https://vk.com/room_sound" target="_blank">vk.com/room_sound</a></div>
+          <div>Instagram: <a class="text-[var(--rum-green)]" href="https://www.instagram.com/room.studio15/" target="_blank">@room.studio15</a></div>
+          <div>YouTube: <a class="text-[var(--rum-green)]" href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q" target="_blank">ROOM STUDIO</a></div>
+          <div>Телефон: <span class="text-[var(--rum-green)]">+7 985 925-38-08</span></div>
+          <div>Email: <a class="text-[var(--rum-green)]" href="mailto:roomstudio15@yandex.com">roomstudio15@yandex.com</a></div>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a class="btn btn-outline" target="_blank" href="https://t.me/room_studio15">Telegram</a>
+          <a class="btn btn-outline" target="_blank" href="https://vk.com/room_sound">VK</a>
+          <a class="btn btn-outline" target="_blank" href="https://www.instagram.com/room.studio15/">Instagram</a>
+          <a class="btn btn-outline" target="_blank" href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q">YouTube</a>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/10">
+        <!-- Замените на реальную карту Яндекс/Гугл -->
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A65a86f7b7fdd2f0bff&source=constructor" width="100%" height="360" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-white/60 text-sm">
+      <div>© <span id="year"></span> РУМ СТУДИО. Все права защищены.</div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Политика конфиденциальности</a>
+        <a href="#booking" class="btn btn-outline">Онлайн‑запись</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menuBtn').addEventListener('click', ()=>{
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('hidden');
+    });
+  </script>
+
+  <!--
+  Подключение аналитики (пример — Яндекс.Метрика)
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(YOUR_ID, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/YOUR_ID" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  -->
+</body>
+</html>
+
