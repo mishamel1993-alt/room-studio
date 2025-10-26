@@ -5,23 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>РУМ СТУДИО — запись, сведение, мастеринг в Подольске</title>
   <meta name="description" content="РУМ СТУДИО — студия звукозаписи в Подольске. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и профессиональный звук." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root{--rum:#00ff88;--bg:#0b0f0d}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12)}
+    :root { --rum:#00ff88; --bg:#0b0f0d; }
+
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--bg);
+      color:#fff;
+      font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+    }
+
+    /* стекло */
+    .glass {
+      background:rgba(255,255,255,.05);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    /* аккуратная карточка для формы */
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      box-shadow:0 10px 36px rgba(0,0,0,.35);
+    }
+
     .btn{display:inline-block;padding:.8rem 1.2rem;border-radius:14px;font-weight:700}
-    .btn-primary{background:var(--rum);color:#07120b;box-shadow:0 8px 30px rgba(0,255,136,.3)}
+    .btn-primary{
+      background:var(--rum);
+      color:#07120b;
+      text-shadow:0 1px 1px rgba(0,0,0,.45), 0 0 2px rgba(0,0,0,.25);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:
+        0 0 0 rgba(0,255,136,0),
+        0 10px 26px rgba(0,255,136,.22),
+        0 0 14px rgba(0,255,136,.18) inset;
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      filter:saturate(1.06);
+      box-shadow:
+        0 0 20px rgba(0,255,136,.36),
+        0 14px 32px rgba(0,255,136,.26),
+        0 0 18px rgba(0,255,136,.22) inset;
+    }
     .btn-outline{border:1px solid rgba(255,255,255,.2)}
+
     .badge{border:1px solid rgba(255,255,255,.2);border-radius:9999px;padding:.2rem .6rem;font-size:.75rem}
-    .input{width:100%;padding:.7rem .9rem;border-radius:12px;background:#00000066;border:1px solid #ffffff26;outline:none}
-    .input:focus{border-color:var(--rum)}
-    .section{padding-top:4rem;padding-bottom:4rem;border-top:1px solid rgba(255,255,255,.08)}
+
+    .input{
+      width:100%;padding:.7rem .9rem;border-radius:12px;
+      background:#00000066;border:1px solid #ffffff26;outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .input:focus{
+      border-color:var(--rum);
+      box-shadow:0 0 0 3px rgba(0,255,136,.14);
+    }
+
+    .section{
+      padding-top:4rem;padding-bottom:4rem;
+      border-top:1px solid rgba(255,255,255,.08);
+      scroll-margin-top:84px; /* якорь не уезжает под шапку */
+    }
     .section:first-of-type{border-top:0}
+
+    /* уведомление об успехе */
+    .notice{opacity:0;transform:translateY(6px);transition:opacity .3s ease, transform .3s ease;}
+    .notice.show{opacity:1;transform:none;}
   </style>
 
   <!-- OG -->
@@ -57,7 +115,7 @@
   <header class="sticky top-0 z-50 glass">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3">
-        <img src="/logo.png" alt="РУМ СТУДИО" class="w-9 h-9 rounded-lg object-cover shadow-lg ring-1 ring-[var(--rum)]/40">
+        <div class="w-9 h-9 rounded-xl" style="background:var(--rum)"></div>
         <div>
           <div class="text-lg font-extrabold">РУМ СТУДИО</div>
           <div class="text-xs text-white/60 -mt-1">Запись • Сведение • Мастеринг</div>
@@ -94,14 +152,21 @@
     <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <span class="badge text-white/80">Подольск · Россия</span>
-        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">Звук, который <span class="text-[var(--rum)]">чувствуется</span></h1>
-        <p class="mt-4 text-white/70 text-lg">Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и точный звук.</p>
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+          Звук, который <span class="text-[var(--rum)]">чувствуется</span>
+        </h1>
+        <p class="mt-4 text-white/70 text-lg">
+          Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и точный звук.
+        </p>
         <div class="mt-6 flex gap-3">
           <a href="#booking" class="btn btn-primary">Записаться</a>
           <a href="https://t.me/room_studio15" target="_blank" class="btn btn-outline">Telegram</a>
         </div>
         <div class="mt-6 text-sm text-white/60 flex items-center gap-4">
-          <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--rum)] animate-pulse"></span> Свободные слоты на этой неделе</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--rum)] animate-pulse"></span>
+            Свободные слоты на этой неделе
+          </span>
           <span class="hidden md:block">·</span>
           <span>Первым клиентам — бонусы</span>
         </div>
@@ -109,7 +174,10 @@
       <div>
         <div class="rounded-2xl overflow-hidden glass relative">
           <div class="aspect-video bg-black/60">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_K1p2wUo9Hw" title="ROOM STUDIO Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_K1p2wUo9Hw"
+              title="ROOM STUDIO Promo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
           <div class="absolute left-4 bottom-4 badge bg-black/50">Промо-ролик · 1 минута</div>
         </div>
@@ -251,7 +319,7 @@
         </ul>
       </div>
       <div>
-        <form id="leadForm" class="glass rounded-2xl p-6 space-y-4">
+        <form id="leadForm" class="card rounded-2xl p-6 space-y-4">
           <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
           <div>
             <label class="text-sm text-white/70">Имя</label>
@@ -275,7 +343,7 @@
             <textarea class="input" name="comment" rows="3" placeholder="Коротко о задаче и желаемой дате"></textarea>
           </div>
           <button id="leadSubmit" class="btn btn-primary w-full" type="submit">Отправить заявку</button>
-          <p id="leadHint" class="text-xs text-white/60">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+          <p id="leadHint" class="text-xs text-white/60 notice">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
         </form>
 
         <!-- сюда выводим кнопку на бота после успеха -->
@@ -328,7 +396,6 @@
         <p class="text-xs text-white/40 mt-4">*Meta Platforms Inc. признана экстремистской организацией на территории РФ.</p>
       </div>
       <div class="rounded-2xl overflow-hidden border border-white/10">
-        <!-- любая встраиваемая карта; ниже — пример заглушки -->
         <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A65a86f7b7fdd2f0bff&source=constructor" width="100%" height="360" frameborder="0"></iframe>
       </div>
     </div>
@@ -372,6 +439,7 @@
 
       btn.disabled = true;
       btn.textContent = 'Отправляем…';
+      hint.classList.remove('show');
       hint.textContent = '';
 
       try {
@@ -385,6 +453,8 @@
         if (res.ok && data?.ok) {
           form.reset();
           hint.textContent = '✅ Спасибо! Заявка отправлена. Мы свяжемся с вами в Telegram.';
+          hint.classList.add('show');
+
           const box = document.getElementById('tgConfirm');
           box.innerHTML =
             'Чтобы получить мгновенное подтверждение, нажмите: ' +
@@ -397,6 +467,7 @@
         console.error(err);
         hint.innerHTML = '⚠️ Не удалось отправить. Напишите нам в Telegram: ' +
           '<a class="underline" href="https://t.me/room_studio15" target="_blank">@room_studio15</a>';
+        hint.classList.add('show');
       } finally {
         btn.disabled = false;
         btn.textContent = 'Отправить заявку';
@@ -405,6 +476,7 @@
   </script>
 </body>
 </html>
+
 
 
 
