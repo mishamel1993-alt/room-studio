@@ -6,150 +6,107 @@
   <title>РУМ СТУДИО — запись, сведение, мастеринг</title>
   <meta name="description" content="РУМ СТУДИО — запись вокала и инструментов, сведение, мастеринг. Подольск, Россия." />
   <link rel="canonical" href="https://room-studio.vercel.app/">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- ✅ Tailwind через CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root { --rum:#00ff99; }
-    html { scroll-behavior:smooth }
-    /* ======= Fade-in всей страницы ======= */
+    :root {
+      --rum: #00ff99;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      background:#0a0c0a;
-      color:#fff;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      opacity:0;
-      transform:translateY(8px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    body.loaded{ opacity:1; transform:none; }
-
-    /* ======= Кнопка ======= */
-    .btn-primary{
-      background:var(--rum);
-      color:#05130c;
-      font-weight:700;
-      padding:.68rem 1.4rem;
-      border-radius:.8rem;
-      transition:all .25s ease;
-      text-shadow:0 1px 1px rgba(0,0,0,.45), 0 0 2px rgba(0,0,0,.25);
-      box-shadow:0 0 0 rgba(0,255,153,0), 0 8px 24px rgba(0,255,153,.25);
-    }
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 0 22px rgba(0,255,153,.35), 0 10px 28px rgba(0,255,153,.28);
-      filter:saturate(1.08);
+      background: #0a0c0a;
+      color: #fff;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    /* ======= Поля ======= */
-    input, textarea, select{
-      background:#101010;
-      border:1px solid #222;
-      border-radius:.7rem;
-      padding:.78rem 1rem;
-      width:100%;
-      color:#fff;
-      outline:none;
-      transition:border-color .2s, box-shadow .2s;
+    /* === Кнопка === */
+    .btn-primary {
+      background: var(--rum);
+      color: #05130c;
+      font-weight: 700;
+      padding: 0.68rem 1.4rem;
+      border-radius: 0.8rem;
+      transition: all 0.25s ease;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45), 0 0 2px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 255, 153, 0.25);
     }
-    input:focus, textarea:focus, select:focus{
-      border-color:var(--rum);
-      box-shadow:0 0 0 3px rgba(0,255,153,.12);
-    }
-
-    /* ======= Уведомление ======= */
-    .notice{
-      opacity:0;
-      transform:translateY(6px);
-      transition:opacity .35s ease, transform .35s ease;
-      position:relative;
-      display:inline-block;
-    }
-    .notice.show{ opacity:1; transform:translateY(0); }
-    .notice::before{
-      content:"";
-      position:absolute;
-      left:-10px; top:4px; bottom:4px; width:3px;
-      border-radius:2px;
-      background:linear-gradient(180deg, rgba(0,255,153,0), rgba(0,255,153,.8), rgba(0,255,153,0));
-      box-shadow:0 0 10px rgba(0,255,153,.5);
-      opacity:0; transition:opacity .35s ease .05s;
-    }
-    .notice.show::before{ opacity:1; }
-
-    /* ======= Логотип: дыхание ======= */
-    @keyframes breathing {
-      0%,100%{ box-shadow:0 0 6px rgba(0,255,153,.15); }
-      50%{ box-shadow:0 0 16px rgba(0,255,153,.55); }
-    }
-    .logo-wrapper{
-      animation:breathing 7s ease-in-out infinite;
-      transition:transform .25s, box-shadow .25s;
-    }
-    .logo-wrapper:hover{
-      transform:scale(1.06);
-      box-shadow:0 0 20px var(--rum), 0 0 50px rgba(0,255,153,.25);
+    .btn-primary:hover {
+      transform: translateY(-1px);
     }
 
-    /* ======= Шапка при скролле ======= */
-    header{
-      position:sticky; top:0; z-index:50;
-      transition:box-shadow .4s ease, border-color .4s ease;
+    /* === Поля === */
+    input,
+    textarea,
+    select {
+      background: #101010;
+      border: 1px solid #222;
+      border-radius: 0.7rem;
+      padding: 0.78rem 1rem;
+      width: 100%;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    header.scrolled{
-      box-shadow:0 0 20px rgba(0,255,153,.25);
-      border-bottom:1px solid rgba(0,255,153,.3);
-    }
-
-    /* ======= Reveal ======= */
-    .reveal{
-      opacity:0;
-      transform:translateY(12px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    .reveal.show{ opacity:1; transform:none; }
-
-    /* ======= Кнопка «наверх» ======= */
-    #toTop{
-      position:fixed; right:18px; bottom:18px;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(255,255,255,.12);
-      color:#fff;
-      width:42px; height:42px;
-      border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; pointer-events:none;
-      transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease;
-      z-index:60;
-    }
-    #toTop.show{ opacity:1; pointer-events:auto; }
-    #toTop:hover{
-      box-shadow:0 0 18px rgba(0,255,153,.35);
-      transform:translateY(-2px);
-      border-color:rgba(0,255,153,.45);
-      color:var(--rum);
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--rum);
+      box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.12);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *{ animation-duration:0.001ms!important; animation-iteration-count:1!important; transition-duration:0.001ms!important; }
-      body{ opacity:1!important; transform:none!important; }
+    /* === Сообщение после отправки === */
+    #statusMessage a {
+      color: var(--rum);
+      text-decoration: underline;
+    }
+
+    /* === Логотип === */
+    .logo-wrapper img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* === Мобильный фолбэк на случай задержки Tailwind === */
+    .fallback-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .fallback-h16 {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-    <div class="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
+  <!-- ===== HEADER ===== -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/40">
+    <div class="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between fallback-container fallback-h16">
+      <!-- Логотип и текст -->
       <a href="#home" class="flex items-center gap-3 shrink-0 min-w-0">
         <div class="logo-wrapper w-12 h-12 rounded-xl overflow-hidden bg-black/60 flex items-center justify-center">
-          <img src="/logo.png" alt="РУМ СТУДИО" class="block w-[115%] h-[115%] object-cover -translate-y-[0.5px]" />
+          <img src="/logo.png" alt="РУМ СТУДИО" />
         </div>
         <div class="flex flex-col justify-center leading-tight min-w-0">
-          <div class="text-base md:text-lg font-extrabold leading-none truncate">РУМ СТУДИО</div>
+          <div class="text-base md:text-lg font-extrabold leading-none truncate">
+            РУМ СТУДИО
+          </div>
           <div class="text-[10px] md:text-xs text-white/60 leading-none -mt-0.5 truncate">
             Запись • Сведение • Мастеринг
           </div>
         </div>
       </a>
+
+      <!-- Навигация -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" class="hover:text-[var(--rum)]">Услуги</a>
         <a href="#pricing" class="hover:text-[var(--rum)]">Цены</a>
@@ -159,12 +116,16 @@
         <a href="#contacts" class="hover:text-[var(--rum)]">Контакты</a>
         <a href="#booking" class="btn-primary">Записаться</a>
       </nav>
+
+      <!-- Бургер -->
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/15 p-2">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
+          <path d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
+
+    <!-- Мобильное меню -->
     <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/70">
       <div class="px-4 py-3 flex flex-col gap-3 text-sm">
         <a href="#services">Услуги</a>
@@ -178,31 +139,37 @@
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section id="home" class="py-24 text-center max-w-3xl mx-auto px-4 reveal">
+  <!-- ===== HERO ===== -->
+  <section id="home" class="py-24 text-center max-w-3xl mx-auto px-4">
     <div class="mb-3">
-      <span class="bg-[var(--rum)]/10 text-[var(--rum)] text-xs px-3 py-1 rounded-full">Подольск • Россия</span>
+      <span class="bg-[var(--rum)]/10 text-[var(--rum)] text-xs px-3 py-1 rounded-full">
+        Подольск • Россия
+      </span>
     </div>
     <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
-      Звук, который<br><span class="text-[var(--rum)]">чувствуется</span>
+      Звук, который<br /><span class="text-[var(--rum)]">чувствуется</span>
     </h1>
     <p class="text-gray-400 text-lg leading-relaxed">
       Запись вокала и инструментов. Сведение. Мастеринг. Минуса на заказ. Всё — с атмосферой.
     </p>
   </section>
 
-  <!-- ================= ФОРМА ЗАЯВКИ ================= -->
-  <section id="booking" class="py-16 bg-black/30 border-t border-white/10 reveal">
+  <!-- ===== ФОРМА ===== -->
+  <section id="booking" class="py-16 bg-black/30 border-t border-white/10">
     <div class="max-w-lg mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 text-center">Оставить заявку</h2>
+
       <form id="contactForm" class="space-y-5">
-        <div><label class="text-sm text-gray-400">Имя</label>
+        <div>
+          <label class="text-sm text-gray-400">Имя</label>
           <input type="text" name="name" placeholder="Ваше имя" required />
         </div>
-        <div><label class="text-sm text-gray-400">Телефон или Telegram</label>
+        <div>
+          <label class="text-sm text-gray-400">Телефон или Telegram</label>
           <input type="text" name="contact" placeholder="@username или +7..." required />
         </div>
-        <div><label class="text-sm text-gray-400">Услуга</label>
+        <div>
+          <label class="text-sm text-gray-400">Услуга</label>
           <select name="service" required>
             <option value="Запись вокала">Запись вокала</option>
             <option value="Сведение">Сведение</option>
@@ -210,76 +177,68 @@
             <option value="Минус на заказ">Минус на заказ</option>
           </select>
         </div>
-        <div><label class="text-sm text-gray-400">Комментарий</label>
+        <div>
+          <label class="text-sm text-gray-400">Комментарий</label>
           <textarea name="comment" rows="3" placeholder="Коротко о задаче или желаемой дате"></textarea>
         </div>
+
         <button type="submit" class="btn-primary w-full">Отправить заявку</button>
-        <p id="statusMessage" class="text-center text-sm text-gray-300 mt-2 notice" aria-live="polite"></p>
+        <p id="statusMessage" class="text-center text-sm text-gray-300 mt-2" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ===== FOOTER ===== -->
   <footer class="py-10 text-center text-sm text-gray-500 border-t border-white/10">
     <p>© 2025 РУМ СТУДИО. Все права защищены.</p>
   </footer>
 
-  <!-- ===== Кнопка «наверх» ===== -->
-  <button id="toTop" title="Наверх">
-    ↑
-  </button>
-
-  <!-- ================= JS ================= -->
-  <script defer>
-    // Fade-in body
-    window.addEventListener("load",()=>document.body.classList.add("loaded"));
-
+  <script>
     // Мобильное меню
-    document.getElementById("menuBtn").onclick=()=>document.getElementById("mobileMenu").classList.toggle("hidden");
-
-    // Reveal on scroll
-    const reveals=document.querySelectorAll(".reveal");
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
-    },{threshold:.1});
-    reveals.forEach(r=>observer.observe(r));
-
-    // Scroll header + кнопка наверх
-    const header=document.querySelector("header");
-    const toTop=document.getElementById("toTop");
-    window.addEventListener("scroll",()=>{
-      if(window.scrollY>20) header.classList.add("scrolled"); else header.classList.remove("scrolled");
-      if(window.scrollY>300) toTop.classList.add("show"); else toTop.classList.remove("show");
-    });
-    toTop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+    document.getElementById("menuBtn").onclick = () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    };
 
     // Отправка формы
-    document.getElementById("contactForm").addEventListener("submit",async e=>{
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const f=e.target;
-      const d={name:f.name.value.trim(),contact:f.contact.value.trim(),service:f.service.value,comment:f.comment.value.trim()};
-      const s=document.getElementById("statusMessage");
-      s.classList.remove("show");
-      s.textContent="Отправляем...";
-      try{
-        const r=await fetch("/api/telegram",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
-        if(r.ok){
-          s.innerHTML="✅ Спасибо! Мы свяжемся с вами в ближайшее время. "+
-          "А пока можете написать нам в <a href='https://t.me/Room_st_bot' target='_blank' class='underline text-[var(--rum)]'>Telegram</a>.";
+      const f = e.target;
+      const data = {
+        name: f.name.value.trim(),
+        contact: f.contact.value.trim(),
+        service: f.service.value,
+        comment: f.comment.value.trim(),
+      };
+      const status = document.getElementById("statusMessage");
+      status.textContent = "Отправляем...";
+
+      try {
+        const res = await fetch("/api/telegram", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          status.innerHTML =
+            "✅ Спасибо! Мы свяжемся с вами в ближайшее время. " +
+            "А пока можете написать нам в " +
+            "<a href='https://t.me/Room_st_bot' target='_blank'>Telegram</a>.";
           f.reset();
-        }else{
-          s.innerHTML="⚠️ Не удалось отправить. Напишите нам в "+
-          "<a href='https://t.me/Room_st_bot' target='_blank' class='underline text-[var(--rum)]'>Telegram</a>.";
+        } else {
+          status.innerHTML =
+            "⚠️ Не удалось отправить. Напишите нам в " +
+            "<a href='https://t.me/Room_st_bot' target='_blank'>Telegram</a>.";
         }
-        requestAnimationFrame(()=>s.classList.add("show"));
-      }catch(err){
-        s.textContent="Ошибка соединения. Попробуйте позже.";
-        requestAnimationFrame(()=>s.classList.add("show"));
+      } catch (err) {
+        status.textContent = "Ошибка соединения. Попробуйте позже.";
       }
     });
   </script>
 </body>
 </html>
+
+
 
 
 
