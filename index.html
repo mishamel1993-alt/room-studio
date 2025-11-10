@@ -277,28 +277,43 @@
       Послушайте песни с РУМ СТУДИО ниже
     </p>
 
-    <div class="relative w-full rounded-xl overflow-hidden group">
-      <video
-        id="showreelVideo"
-        class="w-full h-[420px] md:h-[500px] object-cover rounded-xl cursor-pointer"
-        autoplay
-        muted
-        loop
-        playsinline
-        src="/media/showreel-cover.mp4"
-      ></video>
+    <!-- ВИДЕО-ОБЛОЖКА С КНОПКОЙ PLAY (без обрезания кадра) -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black/40">
+  <video
+    id="showreelVideo"
+    class="absolute inset-0 w-full h-full object-contain"
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="metadata"
+    poster="/images/mix-cover.jpg"
+  >
+    <source src="/media/showreel-cover.mp4" type="video/mp4" />
+    <img src="/images/mix-cover.jpg" alt="ROOM STUDIO — обложка шоурила" class="w-full h-full object-contain" />
+  </video>
 
-      <!-- Кнопка Play поверх видео -->
-      <button
-        id="playShowreel"
-        class="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      >
-        <svg width="88" height="88" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="48" stroke="#00FF99" stroke-width="4"/>
-          <polygon points="40,30 75,50 40,70" fill="#00FF99"/>
-        </svg>
-      </button>
-    </div>
+  <!-- Кнопка поверх -->
+  <button
+    id="showreelPlay"
+    type="button"
+    class="absolute inset-0 grid place-items-center focus:outline-none"
+    aria-label="Воспроизвести шоурил"
+  >
+    <span class="relative inline-grid place-items-center w-20 h-20 rounded-full bg-[var(--rum)] text-black font-extrabold shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
+      <svg id="showreelIconPlay" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      <svg id="showreelIconPause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" class="hidden">
+        <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
+      </svg>
+    </span>
+  </button>
+
+  <!-- лёгкое затемнение -->
+  <div class="absolute inset-0 pointer-events-none bg-black/20"></div>
+</div>
+
 
     <!-- Аудио -->
     <div class="mt-6">
@@ -540,6 +555,7 @@
   </script>
 </body>
 </html>
+
 
 
 
