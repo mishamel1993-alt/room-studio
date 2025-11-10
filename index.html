@@ -261,20 +261,26 @@
   </section>
 
   <!-- WORKS -->
-<section id="works" class="section">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-extrabold">Наши работы</h2>
-    <p class="text-white/60 mt-2">Подборка из миксов ROOM STUDIO. Один общий шоурил-микс.</p>
+<div class="rounded-2xl overflow-hidden border border-white/10 glass">
+  <div class="relative w-full aspect-video bg-black/40">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster="/images/mix-cover.jpg"
+    >
+      <source src="/media/showreel-cover.webm" type="video/webm" />
+      <source src="/media/showreel-cover.mp4" type="video/mp4" />
+      <!-- Фолбэк на картинку, если видео не поддерживается -->
+      <img src="/images/mix-cover.jpg" alt="ROOM STUDIO — обложка шоурил-микса" class="w-full h-full object-cover" />
+    </video>
 
-    <div class="mt-8">
-      <div class="rounded-2xl overflow-hidden border border-white/10 glass">
-        <!-- Обложка микса -->
-        <div class="relative rounded-2xl overflow-hidden border border-[var(--rum)]/30 bg-black/40">
-  <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-80">
-      <source src="/media/showreel-cover.mp4" type="video/mp4">
-  </video>
-
-  <div class="absolute inset-0 bg-black/30"></div>
+    <!-- Лёгкое затемнение для читаемости -->
+    <div class="absolute inset-0 pointer-events-none bg-black/20"></div>
+  </div>
 </div>
         <!-- Описание + аудио -->
         <div class="p-4">
@@ -523,6 +529,7 @@
   </script>
 </body>
 </html>
+
 
 
 
