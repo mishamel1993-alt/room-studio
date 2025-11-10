@@ -265,9 +265,11 @@
     </div>
   </section>
 
-  <!-- WORKS — минималистичная версия без текста -->
+ <!-- WORKS — кастомный плеер поверх видео -->
 <section id="works" class="w-full mt-16">
+
   <div class="relative w-full overflow-hidden">
+
     <!-- Видео -->
     <video
       id="showreelVideo"
@@ -282,41 +284,57 @@
       <source src="/media/showreel-cover.mp4" type="video/mp4" />
     </video>
 
-    <!-- затемнение -->
-    <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+    <!-- Тёмное затемнение -->
+    <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
 
-    <!-- Кнопка Play/Pause -->
-    <button
-      id="showreelPlayBtn"
-      class="absolute inset-0 flex items-center justify-center z-10"
-      style="background: transparent; border: none;"
-      aria-label="Воспроизвести шоурил"
-    >
-      <span class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
-                   shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
+    <!-- Контейнер кнопки + прогресс -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10">
+
+      <!-- Кнопка Play/Pause -->
+      <button
+        id="showreelPlayBtn"
+        class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
+               shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105"
+        aria-label="Воспроизвести шоурил"
+        style="border:none;background:var(--rum);"
+      >
         <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z"></path>
         </svg>
         <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
           <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
         </svg>
-      </span>
-    </button>
+      </button>
+
+      <!-- Кастомный прогресс-бар -->
+      <input
+        id="showreelSeek"
+        type="range"
+        value="0"
+        min="0"
+        max="100"
+        class="w-[60%] md:w-[40%] h-1 rounded-full cursor-pointer
+               appearance-none bg-white/30"
+        style="
+          accent-color: var(--rum);
+        "
+      >
+    </div>
   </div>
 
-  <!-- Аудио и кнопка -->
-  <div class="mt-6">
-    <audio id="showreelAudio" controls class="w-full">
-      <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
-    </audio>
-  </div>
+  <!-- скрытый аудио-плеер -->
+  <audio id="showreelAudio" class="hidden">
+    <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
+  </audio>
 
+  <!-- кнопка CTA под блоком -->
   <div class="mt-6 flex justify-center">
     <a href="#booking"
        class="px-8 py-3 rounded-full bg-[var(--rum)] text-black font-bold text-lg shadow-[0_0_30px_rgba(0,255,136,.25)] hover:scale-105 transition-transform">
       Записаться
     </a>
   </div>
+
 </section>
 
     <!-- Аудио -->
@@ -559,6 +577,7 @@
   </script>
 </body>
 </html>
+
 
 
 
