@@ -265,78 +265,59 @@
     </div>
   </section>
 
-  <!-- WORKS -->
-<section id="works" class="section">
-  <h2 class="section-title">Наши работы</h2>
-  <p class="section-subtitle">Подборка миксов ROOM STUDIO и шоурил по саунддизайну.</p>
+  <!-- WORKS — минималистичная версия без текста -->
+<section id="works" class="w-full mt-16">
+  <div class="relative w-full overflow-hidden">
+    <!-- Видео -->
+    <video
+      id="showreelVideo"
+      class="w-full h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster="/images/mix-cover.jpg"
+    >
+      <source src="/media/showreel-cover.mp4" type="video/mp4" />
+    </video>
 
-  <!-- ░░░░░ SHOWREEL BLOCK (НОВЫЙ) ░░░░░ -->
- <div class="relative w-full aspect-video bg-black/40">
+    <!-- затемнение -->
+    <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
 
-    <p class="mb-4 opacity-80 text-center text-white">
-      Послушайте песни с РУМ СТУДИО ниже
-    </p>
-
-    <!-- ВИДЕО-ОБЛОЖКА С КНОПКОЙ PLAY (без обрезания кадра) -->
-<!-- 🔥 WORKS — как раньше, только с PLAY поверх -->
-
-<!-- Обложка шоурила с оверлеем и кнопкой -->
-<div class="relative w-screen left-1/2 right-1/2 -translate-x-1/2 overflow-hidden">
-  <!-- Видео как раньше (object-cover) -->
-  <video
-    id="showreelVideo"
-    class="w-full h-full object-cover"
-    autoplay
-    loop
-    muted
-    playsinline
-    preload="metadata"
-    poster="/images/mix-cover.jpg"
-  >
-    <source src="/media/showreel-cover.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Тёмный слой для читаемости -->
-  <div class="absolute inset-0 pointer-events-none bg-black/20"></div>
-
-  <!-- Текст поверх видео -->
-  <div
-    class="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-2 rounded-full text-sm md:text-base font-semibold
-           text-white/90 bg-black/40 backdrop-blur-md border border-white/10">
-    Работы с&nbsp;<span class="text-[var(--rum)]">РУМ СТУДИО</span>
+    <!-- Кнопка Play/Pause -->
+    <button
+      id="showreelPlayBtn"
+      class="absolute inset-0 flex items-center justify-center z-10"
+      style="background: transparent; border: none;"
+      aria-label="Воспроизвести шоурил"
+    >
+      <span class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
+                   shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
+        <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+        <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
+          <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
+        </svg>
+      </span>
+    </button>
   </div>
 
-  <!-- Кнопка Play/Pause поверх -->
-  <button
-    id="showreelPlayBtn"
-    class="absolute inset-0 flex items-center justify-center z-10"
-    style="background: transparent; border: none;"
-    aria-label="Воспроизвести шоурил"
-  >
-    <span class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
-                 shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
-      <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"></path>
-      </svg>
-      <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
-        <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
-      </svg>
-    </span>
-  </button>
-</div>
+  <!-- Аудио и кнопка -->
+  <div class="mt-6">
+    <audio id="showreelAudio" controls class="w-full">
+      <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
 
-<!-- Заголовок + аудио -->
-<div class="mt-6">
-  <h3 class="font-semibold mb-2 text-lg">ROOM STUDIO — Showreel Mix</h3>
-  <audio id="showreelAudio" controls class="w-full">
-    <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
-  </audio>
-</div>
-
-<!-- CTA снизу -->
-<div class="mt-6 flex">
-  <a href="#booking" class="btn btn-primary">Записаться</a>
-</div>
+  <div class="mt-6 flex justify-center">
+    <a href="#booking"
+       class="px-8 py-3 rounded-full bg-[var(--rum)] text-black font-bold text-lg shadow-[0_0_30px_rgba(0,255,136,.25)] hover:scale-105 transition-transform">
+      Записаться
+    </a>
+  </div>
+</section>
 
     <!-- Аудио -->
     <div class="mt-6">
@@ -578,6 +559,7 @@
   </script>
 </body>
 </html>
+
 
 
 
