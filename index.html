@@ -188,36 +188,41 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="mb-8 flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold">Услуги</h2>
-          <p class="text-white/60 mt-2">Прозрачно по ценам, по-взрослому по звуку.</p>
-        </div>
-        <a href="#pricing" class="text-sm text-[var(--rum)]">Смотреть цены →</a>
+ <!-- SERVICES -->
+<section id="services" class="section">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="mb-8 flex items-end justify-between gap-6">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Услуги</h2>
+        <p class="text-white/60 mt-2">Прозрачно по ценам, по-взрослому по звуку.</p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="glass rounded-2xl p-5">
-          <div class="text-xl font-semibold">Запись вокала</div>
-          <p class="text-white/70 mt-2">Студийные микрофоны, тихая комната, тёплый приём.</p>
-        </div>
-        <div class="glass rounded-2xl p-5">
-          <div class="text-xl font-semibold">Сведение</div>
-          <p class="text-white/70 mt-2">Баланс, глубина, ширина — делаем трек конкурентным.</p>
-        </div>
-        <div class="glass rounded-2xl p-5">
-          <div class="text-xl font-semibold">Мастеринг</div>
-          <p class="text-white/70 mt-2">Громкость без перегруза. Готово к площадкам и радио.</p>
-        </div>
-        <div class="glass rounded-2xl p-5">
-          <div class="text-xl font-semibold">Минуса на заказ</div>
-          <p class="text-white/70 mt-2">От идеи до аранжировки под твой голос и стиль.</p>
-        </div>
+      <a href="#pricing" class="text-sm text-[var(--rum)]">Смотреть цены →</a>
+    </div>
+
+    <!-- ВАЖНО: один grid-контейнер и ровно 4 дочерних карточки -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass rounded-2xl p-5">
+        <div class="text-xl font-semibold">Запись вокала</div>
+        <p class="text-white/70 mt-2">Студийные микрофоны, тихая комната, тёплый приём.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-5">
+        <div class="text-xl font-semibold">Сведение</div>
+        <p class="text-white/70 mt-2">Баланс, глубина, ширина — делаем трек конкурентным.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-5">
+        <div class="text-xl font-semibold">Саунддизайн</div>
+        <p class="text-white/70 mt-2">Создадим звук под видео: музыка, SFX, атмосфера.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-5">
+        <div class="text-xl font-semibold">Минуса на заказ</div>
+        <p class="text-white/70 mt-2">От идеи до аранжировки под твой голос и стиль.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- PRICING -->
   <section id="pricing" class="section">
@@ -246,74 +251,133 @@
           <a href="#booking" class="btn btn-primary mt-6">Заказать</a>
         </div>
         <div class="rounded-2xl border border-white/10 p-6 glass">
-          <div class="badge">Мастеринг</div>
-          <h3 class="mt-3 text-2xl font-bold">от 2500 ₽ / трек</h3>
-          <ul class="mt-4 space-y-2 text-white/70 text-sm">
-            <li>Лимитирование без клиппинга</li>
-            <li>Подготовка под DSP/Radio</li>
-            <li>1 правка включена</li>
-          </ul>
-          <a href="#booking" class="btn btn-outline mt-6">Заказать</a>
+          <div class="badge">Саунддизайн</div>
+<h3 class="mt-3 text-2xl font-bold">от 7000 ₽ / проект</h3>
+<ul class="mt-4 space-y-2 text-white/70 text-sm">
+  <li>Звук под видео, рекламный ролик или TikTok/Reels</li>
+  <li>Музыка + звуковые эффекты + финальный микс</li>
+  <li>1 правка включена</li>
+</ul>
+<a href="#booking" class="btn btn-outline mt-6">Заказать</a>
         </div>
       </div>
       <p class="text-white/50 text-xs mt-4">* Пакеты “Запись + Сведение + Мастеринг” — выгоднее. Спросите про условия.</p>
     </div>
   </section>
 
-  <!-- WORKS -->
-<section id="works" class="section">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-extrabold">Наши работы</h2>
-    <p class="text-white/60 mt-2">Подборка из миксов ROOM STUDIO. Один общий шоурил-микс.</p>
+ <!-- WORKS — кастомный плеер поверх видео -->
+<section id="works" class="w-full mt-16">
 
-    <div class="mt-8">
-      <div class="rounded-2xl overflow-hidden border border-white/10 glass">
-        <!-- Обложка микса -->
-        <img
-          src="/images/mix-cover.jpg"
-          alt="Обложка шоурил-микса ROOM STUDIO"
-          class="w-full aspect-video object-cover bg-black/40"
-        />
-        <!-- Описание + аудио -->
-        <div class="p-4">
-          <div class="font-semibold">ROOM STUDIO — Showreel Mix</div>
-          <audio controls class="w-full mt-3">
-            <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
-          </audio>
-          <p class="text-xs text-white/50 mt-2">
-            Залей файл микса в <code>/media/showreel-mix.mp3</code> и обложку в <code>/images/mix-cover.jpg</code>.
-          </p>
-        </div>
-      </div>
+  <div class="relative w-full overflow-hidden">
+
+    <!-- Видео -->
+    <video
+      id="showreelVideo"
+      class="w-full h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster="/images/mix-cover.jpg"
+    >
+      <source src="/media/showreel-cover.mp4" type="video/mp4" />
+    </video>
+    <!-- Оверлей-анимация текста -->
+<video
+  id="overlayText"
+  class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-[12%]
+         w-[80%] md:w-[60%] mix-blend-screen opacity-95"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+>
+  <!-- Если есть версия с альфа-каналом (WebM VP9 + alpha) — ставим её первой -->
+  <source src="/media/works-title.webm" type="video/webm" />
+  <!-- Фолбэк на MP4 (с тёмным/чёрным фоном) -->
+  <source src="/media/наши работы.mp4" type="video/mp4" />
+</video>
+
+    <!-- Тёмное затемнение -->
+    <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+
+    <!-- Контейнер кнопки + прогресс -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10">
+
+      <!-- Кнопка Play/Pause -->
+      <button
+        id="showreelPlayBtn"
+        class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
+               shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105"
+        aria-label="Воспроизвести шоурил"
+        style="border:none;background:var(--rum);"
+      >
+        <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+        <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
+          <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
+        </svg>
+      </button>
+
+      <!-- Эквалайзер -->
+<div id="eqWrap"
+     class="pointer-events-none w-[70%] md:w-[50%] h-10
+            opacity-0 transition-opacity duration-300">
+  <canvas id="eqCanvas" class="w-full h-full"></canvas>
+</div>
+
+      <!-- Кастомный прогресс-бар -->
+      <input
+        id="showreelSeek"
+        type="range"
+        value="0"
+        min="0"
+        max="100"
+        class="w-[60%] md:w-[40%] h-1 rounded-full cursor-pointer
+               appearance-none bg-white/30"
+        style="
+          accent-color: var(--rum);
+        "
+      >
     </div>
   </div>
+
+  <!-- скрытый аудио-плеер -->
+  <audio id="showreelAudio" class="hidden">
+    <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- кнопка CTA под блоком -->
+  <div class="mt-6 flex justify-center">
+    <a href="#booking"
+       class="px-8 py-3 rounded-full bg-[var(--rum)] text-black font-bold text-lg shadow-[0_0_30px_rgba(0,255,136,.25)] hover:scale-105 transition-transform">
+      Записаться
+    </a>
+  </div>
+
 </section>
 
-  <!-- SOUND DESIGN SHOWCASE -->
-<section id="sd-showcase" class="section">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-extrabold">Саунддизайн</h2>
-    <p class="text-white/60 mt-2">Короткий пример: аудио-логотипы, SFX, оформление роликов.</p>
-
-    <div class="mt-8">
-      <div class="glass rounded-2xl overflow-hidden">
-        <video
-          class="w-full h-full"
-          controls
-          playsinline
-          preload="metadata"
-          poster="/images/sounddesign-poster.jpg"
-        >
-          <source src="/media/sounddesign-demo-1080p.webm" type="video/webm">
-          <source src="/media/sounddesign-demo-1080p.mp4"  type="video/mp4">
-          Ваш браузер не поддерживает видео. Скачайте файл:
-          <a href="/media/sounddesign-demo-1080p.mp4">MP4</a>.
-        </video>
-        <div class="p-3 text-xs text-white/50">Файл: <code>/media/sounddesign-demo-1080p.(mp4|webm)</code>, постер: <code>/images/sounddesign-poster.jpg</code>.</div>
-      </div>
+    <!-- Аудио -->
+    <div class="mt-6">
+      <h3 class="font-semibold mb-2 text-lg">ROOM STUDIO — Showreel Mix</h3>
+      <audio controls class="w-full">
+        <source src="/media/showreel-mix.mp3" type="audio/mp3">
+      </audio>
     </div>
   </div>
-</section>
+
+<script>
+  const video = document.getElementById('showreelVideo');
+  const playBtn = document.getElementById('playShowreel');
+
+  playBtn.addEventListener("click", () => {
+    video.muted = false;
+    video.play();
+  });
+</script>
 
   <!-- STUDIO -->
   <section id="studio" class="section">
@@ -519,8 +583,196 @@
       }
     });
   </script>
+  <script>
+(() => {
+  // Базовые элементы
+  const audio     = document.getElementById('showreelAudio');
+  const playBtn   = document.getElementById('showreelPlayBtn');
+  const iconPlay  = document.getElementById('showreelPlayIcon');
+  const iconPause = document.getElementById('showreelPauseIcon');
+  const seek      = document.getElementById('showreelSeek');
+
+  // Эквалайзер
+  const eqWrap   = document.getElementById('eqWrap');
+  const eqCanvas = document.getElementById('eqCanvas');
+  const eqCtx    = eqCanvas ? eqCanvas.getContext('2d') : null;
+
+  if (!audio || !playBtn || !seek) return;
+
+  let seeking = false;
+  let rafId = null;
+
+  // Web Audio
+  let audioCtx = null, analyser = null, source = null, dataArray = null;
+
+  function toggleIcons(playing) {
+    if (playing) {
+      iconPlay && iconPlay.classList.add('hidden');
+      iconPause && iconPause.classList.remove('hidden');
+    } else {
+      iconPause && iconPause.classList.add('hidden');
+      iconPlay && iconPlay.classList.remove('hidden');
+    }
+  }
+
+  async function ensureAudioGraph() {
+    if (audioCtx) {
+      if (audioCtx.state === 'suspended') await audioCtx.resume();
+      return;
+    }
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    const len = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(len);
+
+    source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+  }
+
+  // === Эквалайзер ===
+  function resizeEqCanvas() {
+    if (!eqCanvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = eqCanvas.clientWidth;
+    const h = eqCanvas.clientHeight;
+    if (w === 0 || h === 0) return;
+    eqCanvas.width = Math.floor(w * dpr);
+    eqCanvas.height = Math.floor(h * dpr);
+    eqCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    r = Math.min(r, w/2, h/2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawEq() {
+    if (!analyser || !eqCtx || !eqCanvas) return;
+    resizeEqCanvas();
+    const w = eqCanvas.clientWidth;
+    const h = eqCanvas.clientHeight;
+
+    eqCtx.clearRect(0, 0, w, h);
+    analyser.getByteFrequencyData(dataArray);
+
+    const bars = 32;
+    const step = Math.floor(dataArray.length / bars);
+    const barW = w / bars;
+
+    for (let i = 0; i < bars; i++) {
+      const v = dataArray[i * step] / 255;     // 0..1
+      const bh = Math.max(2, v * h);
+      const x = i * barW + barW * 0.18;
+      const y = h - bh;
+      const rw = barW * 0.64;
+      const r  = Math.min(6, rw * 0.35);
+
+      eqCtx.fillStyle = 'rgba(0,255,136,0.95)';          // var(--rum)
+      eqCtx.shadowColor = 'rgba(0,255,136,0.55)';
+      eqCtx.shadowBlur = 10;
+
+      roundRect(eqCtx, x, y, rw, bh, r);
+      eqCtx.fill();
+    }
+
+    rafId = requestAnimationFrame(drawEq);
+  }
+
+  function startEq() {
+    if (eqWrap) eqWrap.style.opacity = '1';
+    cancelAnimationFrame(rafId);
+    drawEq();
+  }
+
+  function stopEq() {
+    if (eqWrap) eqWrap.style.opacity = '0';
+    cancelAnimationFrame(rafId);
+    if (eqCtx && eqCanvas) eqCtx.clearRect(0, 0, eqCanvas.clientWidth, eqCanvas.clientHeight);
+  }
+
+  // === Управление плеером ===
+  playBtn.addEventListener('click', async () => {
+    try {
+      await ensureAudioGraph();       // инициализируем/возобновляем AudioContext
+      if (audio.paused) {
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+    } catch (e) {
+      // Браузер может блокировать автоплей — ничего страшного
+      console.warn(e);
+    }
+  });
+
+  // Обновляем ползунок во время проигрывания
+  audio.addEventListener('timeupdate', () => {
+    if (seeking || !isFinite(audio.duration) || audio.duration === 0) return;
+    seek.value = (audio.currentTime / audio.duration) * 100;
+  });
+
+  // Пользователь двигает ползунок
+  seek.addEventListener('input', () => {
+    seeking = true;
+    if (!isFinite(audio.duration) || audio.duration === 0) return;
+    audio.currentTime = (seek.value / 100) * audio.duration;
+  });
+  seek.addEventListener('change', () => {
+    seeking = false;
+  });
+
+  // События аудио — иконки и эквалайзер
+  audio.addEventListener('play',  () => { toggleIcons(true);  startEq(); });
+  audio.addEventListener('pause', () => { toggleIcons(false); stopEq(); });
+  audio.addEventListener('ended', () => {
+    toggleIcons(false);
+    stopEq();
+    seek.value = 0;
+  });
+
+  // Адаптация под ресайз
+  window.addEventListener('resize', resizeEqCanvas, { passive: true });
+
+})();
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
