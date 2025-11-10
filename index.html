@@ -582,8 +582,169 @@
       }
     });
   </script>
+  <script>
+(() => {
+  // Базовые элементы
+  const audio     = document.getElementById('showreelAudio');
+  const playBtn   = document.getElementById('showreelPlayBtn');
+  const iconPlay  = document.getElementById('showreelPlayIcon');
+  const iconPause = document.getElementById('showreelPauseIcon');
+  const seek      = document.getElementById('showreelSeek');
+
+  // Эквалайзер
+  const eqWrap   = document.getElementById('eqWrap');
+  const eqCanvas = document.getElementById('eqCanvas');
+  const eqCtx    = eqCanvas ? eqCanvas.getContext('2d') : null;
+
+  if (!audio || !playBtn || !seek) return;
+
+  let seeking = false;
+  let rafId = null;
+
+  // Web Audio
+  let audioCtx = null, analyser = null, source = null, dataArray = null;
+
+  function toggleIcons(playing) {
+    if (playing) {
+      iconPlay && iconPlay.classList.add('hidden');
+      iconPause && iconPause.classList.remove('hidden');
+    } else {
+      iconPause && iconPause.classList.add('hidden');
+      iconPlay && iconPlay.classList.remove('hidden');
+    }
+  }
+
+  async function ensureAudioGraph() {
+    if (audioCtx) {
+      if (audioCtx.state === 'suspended') await audioCtx.resume();
+      return;
+    }
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    const len = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(len);
+
+    source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+  }
+
+  // === Эквалайзер ===
+  function resizeEqCanvas() {
+    if (!eqCanvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = eqCanvas.clientWidth;
+    const h = eqCanvas.clientHeight;
+    if (w === 0 || h === 0) return;
+    eqCanvas.width = Math.floor(w * dpr);
+    eqCanvas.height = Math.floor(h * dpr);
+    eqCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    r = Math.min(r, w/2, h/2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawEq() {
+    if (!analyser || !eqCtx || !eqCanvas) return;
+    resizeEqCanvas();
+    const w = eqCanvas.clientWidth;
+    const h = eqCanvas.clientHeight;
+
+    eqCtx.clearRect(0, 0, w, h);
+    analyser.getByteFrequencyData(dataArray);
+
+    const bars = 32;
+    const step = Math.floor(dataArray.length / bars);
+    const barW = w / bars;
+
+    for (let i = 0; i < bars; i++) {
+      const v = dataArray[i * step] / 255;     // 0..1
+      const bh = Math.max(2, v * h);
+      const x = i * barW + barW * 0.18;
+      const y = h - bh;
+      const rw = barW * 0.64;
+      const r  = Math.min(6, rw * 0.35);
+
+      eqCtx.fillStyle = 'rgba(0,255,136,0.95)';          // var(--rum)
+      eqCtx.shadowColor = 'rgba(0,255,136,0.55)';
+      eqCtx.shadowBlur = 10;
+
+      roundRect(eqCtx, x, y, rw, bh, r);
+      eqCtx.fill();
+    }
+
+    rafId = requestAnimationFrame(drawEq);
+  }
+
+  function startEq() {
+    if (eqWrap) eqWrap.style.opacity = '1';
+    cancelAnimationFrame(rafId);
+    drawEq();
+  }
+
+  function stopEq() {
+    if (eqWrap) eqWrap.style.opacity = '0';
+    cancelAnimationFrame(rafId);
+    if (eqCtx && eqCanvas) eqCtx.clearRect(0, 0, eqCanvas.clientWidth, eqCanvas.clientHeight);
+  }
+
+  // === Управление плеером ===
+  playBtn.addEventListener('click', async () => {
+    try {
+      await ensureAudioGraph();       // инициализируем/возобновляем AudioContext
+      if (audio.paused) {
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+    } catch (e) {
+      // Браузер может блокировать автоплей — ничего страшного
+      console.warn(e);
+    }
+  });
+
+  // Обновляем ползунок во время проигрывания
+  audio.addEventListener('timeupdate', () => {
+    if (seeking || !isFinite(audio.duration) || audio.duration === 0) return;
+    seek.value = (audio.currentTime / audio.duration) * 100;
+  });
+
+  // Пользователь двигает ползунок
+  seek.addEventListener('input', () => {
+    seeking = true;
+    if (!isFinite(audio.duration) || audio.duration === 0) return;
+    audio.currentTime = (seek.value / 100) * audio.duration;
+  });
+  seek.addEventListener('change', () => {
+    seeking = false;
+  });
+
+  // События аудио — иконки и эквалайзер
+  audio.addEventListener('play',  () => { toggleIcons(true);  startEq(); });
+  audio.addEventListener('pause', () => { toggleIcons(false); stopEq(); });
+  audio.addEventListener('ended', () => {
+    toggleIcons(false);
+    stopEq();
+    seek.value = 0;
+  });
+
+  // Адаптация под ресайз
+  window.addEventListener('resize', resizeEqCanvas, { passive: true });
+
+})();
+</script>
 </body>
 </html>
+
 
 
 
