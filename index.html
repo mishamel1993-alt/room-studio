@@ -266,67 +266,73 @@
   </section>
 
   <!-- WORKS -->
-<div class="rounded-2xl overflow-hidden border border-white/10 glass">
-  <div class="relative w-full aspect-video bg-black/40">
+<section id="works" class="section">
+  <h2 class="section-title">Наши работы</h2>
+  <p class="section-subtitle">Подборка миксов ROOM STUDIO и шоурил по саунддизайну.</p>
+
+  <!-- ░░░░░ SHOWREEL BLOCK (НОВЫЙ) ░░░░░ -->
+  <div class="work-card glass rounded-2xl overflow-hidden border border-white/10 p-6 mb-14">
+
+    <p class="mb-4 opacity-80 text-center text-white">
+      Послушайте песни с РУМ СТУДИО ниже
+    </p>
+
+    <div class="relative w-full rounded-xl overflow-hidden group">
+      <video
+        id="showreelVideo"
+        class="w-full h-[420px] md:h-[500px] object-cover rounded-xl cursor-pointer"
+        autoplay
+        muted
+        loop
+        playsinline
+        src="/media/showreel-cover.mp4"
+      ></video>
+
+      <!-- Кнопка Play поверх видео -->
+      <button
+        id="playShowreel"
+        class="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <svg width="88" height="88" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="48" stroke="#00FF99" stroke-width="4"/>
+          <polygon points="40,30 75,50 40,70" fill="#00FF99"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Аудио -->
+    <div class="mt-6">
+      <h3 class="font-semibold mb-2 text-lg">ROOM STUDIO — Showreel Mix</h3>
+      <audio controls class="w-full">
+        <source src="/media/showreel-mix.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+
+
+  <!-- ░░░░░ SOUND DESIGN BLOCK ░░░░░ -->
+  <div class="work-card glass rounded-2xl overflow-hidden border border-white/10 p-6">
+
+    <h3 class="font-semibold mb-4 text-lg">Саунддизайн — видео пример</h3>
+
     <video
-      class="absolute inset-0 w-full h-full object-cover"
-      autoplay
-      loop
-      muted
+      controls
       playsinline
-      preload="metadata"
-      poster="/images/mix-cover.jpg"
-    >
-      <source src="/media/showreel-cover.webm" type="video/webm" />
-      <source src="/media/showreel-cover.mp4" type="video/mp4" />
-      <!-- Фолбэк на картинку, если видео не поддерживается -->
-      <img src="/images/mix-cover.jpg" alt="ROOM STUDIO — обложка шоурил-микса" class="w-full h-full object-cover" />
-    </video>
-
-    <!-- Лёгкое затемнение для читаемости -->
-    <div class="absolute inset-0 pointer-events-none bg-black/20"></div>
-  </div>
-</div>
-        <!-- Описание + аудио -->
-        <div class="p-4">
-          <div class="font-semibold">ROOM STUDIO — Showreel Mix</div>
-          <audio controls class="w-full mt-3">
-            <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
-          </audio>
-          <p class="text-xs text-white/50 mt-2">
-            Залей файл микса в <code>/media/showreel-mix.mp3</code> и обложку в <code>/images/mix-cover.jpg</code>.
-          </p>
-        </div>
-      </div>
-    </div>
+      class="w-full h-[420px] md:h-[500px] rounded-xl object-cover"
+      src="/media/sound-design-example.mp4"
+    ></video>
   </div>
 </section>
 
-  <!-- SOUND DESIGN SHOWCASE -->
-<section id="sd-showcase" class="section">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-extrabold">Саунддизайн</h2>
-    <p class="text-white/60 mt-2">Короткий пример: аудио-логотипы, SFX, оформление роликов.</p>
+<script>
+  const video = document.getElementById('showreelVideo');
+  const playBtn = document.getElementById('playShowreel');
 
-    <div class="mt-8">
-      <div class="glass rounded-2xl overflow-hidden">
-        <video
-          class="w-full h-full"
-          controls
-          playsinline
-          preload="metadata"
-          poster="/images/sounddesign-poster.jpg"
-        >
-          <source src="/media/sounddesign-demo-1080p.webm" type="video/webm">
-          <source src="/media/sounddesign-demo-1080p.mp4"  type="video/mp4">
-          Ваш браузер не поддерживает видео. Скачайте файл:
-          <a href="/media/sounddesign-demo-1080p.mp4">MP4</a>.
-        </video>
-        <div class="p-3 text-xs text-white/50">Файл: <code>/media/sounddesign-demo-1080p.(mp4|webm)</code>, постер: <code>/images/sounddesign-poster.jpg</code>.</div>
-      </div>
-    </div>
-  </div>
-</section>
+  playBtn.addEventListener("click", () => {
+    video.muted = false;
+    video.play();
+  });
+</script>
 
   <!-- STUDIO -->
   <section id="studio" class="section">
@@ -534,6 +540,7 @@
   </script>
 </body>
 </html>
+
 
 
 
