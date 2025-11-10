@@ -278,10 +278,13 @@
     </p>
 
     <!-- ВИДЕО-ОБЛОЖКА С КНОПКОЙ PLAY (без обрезания кадра) -->
-<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black/40">
+<!-- 🔥 WORKS — как раньше, только с PLAY поверх -->
+
+<div class="relative w-full rounded-xl overflow-hidden border border-[var(--rum)]/20">
+  <!-- Видео / обложка как было ранее -->
   <video
     id="showreelVideo"
-    class="absolute inset-0 w-full h-full object-contain"
+    class="w-full h-full object-cover"
     autoplay
     loop
     muted
@@ -290,30 +293,31 @@
     poster="/images/mix-cover.jpg"
   >
     <source src="/media/showreel-cover.mp4" type="video/mp4" />
-    <img src="/images/mix-cover.jpg" alt="ROOM STUDIO — обложка шоурила" class="w-full h-full object-contain" />
   </video>
 
   <!-- Кнопка поверх -->
   <button
-    id="showreelPlay"
-    type="button"
-    class="absolute inset-0 grid place-items-center focus:outline-none"
-    aria-label="Воспроизвести шоурил"
+    id="showreelPlayBtn"
+    class="absolute inset-0 flex items-center justify-center pointer-events-auto"
+    style="background: transparent; border: none;"
   >
-    <span class="relative inline-grid place-items-center w-20 h-20 rounded-full bg-[var(--rum)] text-black font-extrabold shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
-      <svg id="showreelIconPlay" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8 5v14l11-7z"></path>
-      </svg>
-      <svg id="showreelIconPause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" class="hidden">
-        <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
-      </svg>
-    </span>
+      <span class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105">
+        <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+        <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
+          <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
+        </svg>
+      </span>
   </button>
 
-  <!-- лёгкое затемнение -->
-  <div class="absolute inset-0 pointer-events-none bg-black/20"></div>
+  <!-- затемнение при загрузке -->
+  <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
 </div>
 
+<p class="text-center mt-4 opacity-70">
+  Послушайте песни с РУМ СТУДИО ниже
+</p>
 
     <!-- Аудио -->
     <div class="mt-6">
@@ -555,6 +559,7 @@
   </script>
 </body>
 </html>
+
 
 
 
