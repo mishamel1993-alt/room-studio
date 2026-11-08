@@ -1,787 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>РУМ СТУДИО — запись, сведение, мастеринг в Подольске</title>
-  <meta name="description" content="РУМ СТУДИО — студия звукозаписи в Подольске. Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и профессиональный звук." />
-
-  <!-- минимально нужные SEO/OG дополнения -->
-  <link rel="canonical" href="https://room-studio.vercel.app/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090e0c">
+  <meta name="description" content="РУМ СТУДИО в Подольске. Запись вокала и инструментов, сведение, мастеринг и музыка на заказ. Пространство для твоего звука.">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#0b0f0d">
-
-  <!-- OG -->
-  <meta property="og:title" content="РУМ СТУДИО — запись, сведение, мастеринг в Подольске">
-  <meta property="og:description" content="Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Тёплая атмосфера и профессиональный звук.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://room-studio.vercel.app/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="РУМ СТУДИО — запись, сведение, мастеринг в Подольске">
-  <meta name="twitter:description" content="Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Тёплая атмосфера и профессиональный звук.">
-  <meta name="twitter:image" content="https://room-studio.vercel.app/og-cover.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{--rum:#00ff88;--bg:#0b0f0d}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12)}
-    .btn{display:inline-block;padding:.8rem 1.2rem;border-radius:14px;font-weight:700}
-    .btn-primary{background:var(--rum);color:#07120b;box-shadow:0 8px 30px rgba(0,255,136,.3)}
-    .btn-outline{border:1px solid rgba(255,255,255,.2)}
-    .badge{border:1px solid rgba(255,255,255,.2);border-radius:9999px;padding:.2rem .6rem;font-size:.75rem}
-    .input{width:100%;padding:.7rem .9rem;border-radius:12px;background:#00000066;border:1px solid #ffffff26;outline:none}
-    .input:focus{border-color:var(--rum)}
-    .section{padding-top:4rem;padding-bottom:4rem;border-top:1px solid rgba(255,255,255,.08)}
-    .section:first-of-type{border-top:0}
-    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
-      outline:2px solid var(--rum);outline-offset:2px
-    }
-
-    /* ===== ХОВЕРЫ И ЛОГО ===== */
-    a, button, .btn, .btn-outline, .btn-primary, .badge { transition: all .2s ease; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn-primary:hover { box-shadow: 0 12px 40px rgba(0,255,136,.45); filter: saturate(1.05); }
-    .btn-outline:hover { border-color: var(--rum); background: rgba(0,255,136,.08); color: #d8ffe9; }
-    nav a:hover, a:hover { color: var(--rum); }
-    .glass:hover { border-color: rgba(0,255,136,.22); }
-
-    .logo-box {
-      width: 40px; height: 40px;
-      border-radius: 12px; overflow: hidden;
-      background: #00000080;
-      box-shadow: 0 6px 18px rgba(0,0,0,.35);
-      border: 1px solid rgba(0,255,136,.35);
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .logo-img { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
-  </style>
-
-  <!-- JSON-LD (MusicRecordingStudio) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicRecordingStudio",
-    "name": "РУМ СТУДИО",
-    "address": { "@type": "PostalAddress", "addressLocality": "Подольск", "streetAddress": "ул. Дружбы, д. 15", "addressCountry": "RU" },
-    "url": "https://room-studio.vercel.app",
-    "sameAs": [
-      "https://t.me/room_studio15",
-      "https://vk.com/room_sound",
-      "https://www.instagram.com/room.studio15/",
-      "https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q"
-    ],
-    "priceRange": "₽₽",
-    "openingHours": "Mo-Su 10:00-22:00",
-    "telephone": "+7 985 925-38-08",
-    "email": "roomstudio15@yandex.com",
-    "description": "Запись вокала, сведение, мастеринг, минуса на заказ"
-  }
-  </script>
-
-  <!-- JSON-LD FAQ -->
-  <script type="application/ld+json">
-  {
-   "@context": "https://schema.org",
-   "@type": "FAQPage",
-   "mainEntity": [
-     {
-       "@type": "Question",
-       "name": "Можно ли прийти без опыта записи?",
-       "acceptedAnswer": {"@type": "Answer","text": "Да. Поможем с разогревом, дыханием, дублями и поведём по процессу."}
-     },
-     {
-       "@type": "Question",
-       "name": "Сколько правок включено?",
-       "acceptedAnswer": {"@type": "Answer","text": "В сведение включено 2 правки, в мастеринг — 1. Дополнительные — по договорённости."}
-     },
-     {
-       "@type": "Question",
-       "name": "Можно ли подарочный сертификат?",
-       "acceptedAnswer": {"@type": "Answer","text": "Да, оформим цифровой сертификат на запись или сведение."}
-     }
-   ]
-  }
-  </script>
+  <link rel="canonical" href="https://www.studio-room.ru/">
+  <title>РУМ СТУДИО — из идеи в трек</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23090e0c'/%3E%3Cpath d='M12 24V12h40v12M12 40v12h40V40' fill='none' stroke='%234dff9d' stroke-width='4'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-weight='700' font-size='22' fill='white'%3EР%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="room-space.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 glass">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-3">
-        <!-- ЛОГО поправлено -->
-        <span class="logo-box">
-          <img src="/logo.png" alt="РУМ СТУДИО" class="w-12 h-12 rounded-xl object-cover shadow-lg ring-1 ring-[var(--rum)]/40">
-        </span>
-        <div>
-          <div class="text-lg font-extrabold">РУМ СТУДИО</div>
-          <div class="text-xs text-white/60 -mt-1">Запись • Сведение • Мастеринг</div>
-        </div>
-      </a>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#services" class="hover:text-[var(--rum)]">Услуги</a>
-        <a href="#pricing" class="hover:text-[var(--rum)]">Цены</a>
-        <a href="#works" class="hover:text-[var(--rum)]">Работы</a>
-        <a href="#studio" class="hover:text-[var(--rum)]">Студия</a>
-        <a href="#faq" class="hover:text-[var(--rum)]">FAQ</a>
-        <a href="#contacts" class="hover:text-[var(--rum)]">Контакты</a>
-        <a href="#booking" class="btn btn-primary">Записаться</a>
-      </nav>
-      <button id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/15 p-2" aria-label="Открыть меню">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;pointer-events:none"><defs><filter id="logo-brand-green" color-interpolation-filters="sRGB"><!-- Maps the logo's dominant mint (44,247,206) to the headline green (77,255,157); neutral whites and alpha remain unchanged. --><feColorMatrix type="matrix" values="0.837438424 0.162561576 0 0 0 -0.039408867 1.039408867 0 0 0 0.241379310 -0.241379310 1 0 0 0 0 0 1 0"/></filter></defs></svg>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <header class="header">
+    <div class="header-identity"><a href="#home" class="brand brand-primary" aria-label="РУМ СТУДИО — главная"><img class="brand-image" src="assets/rumstudio-logo-transparent.png" alt="РУМСТУДИО" width="2172" height="724" decoding="async"></a><span class="brand-description">Студия звукозаписи</span></div>
+    <div class="header-contactbar">
+      <a class="header-address" href="#directions"><span>г. Подольск, ул. Комсомольская, 1к62</span><span class="header-address-note">Территория Зингер</span></a>
+      <div class="header-contact-actions"><a class="header-phone" href="tel:+79859253808"><span>Тел.</span> +7 985 925-38-08</a><details class="header-socials"><summary>Соцсети<span class="socials-chevron" aria-hidden="true"></span></summary><div class="header-social-links"><a href="https://t.me/room_studio15" target="_blank" rel="noopener">Telegram</a><a href="https://vk.com/room_sound" target="_blank" rel="noopener">ВКонтакте</a><a href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q" target="_blank" rel="noopener">YouTube</a></div></details></div>
     </div>
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
-      <div class="px-4 py-3 flex flex-col gap-3 text-sm">
-        <a href="#services">Услуги</a>
-        <a href="#pricing">Цены</a>
-        <a href="#works">Работы</a>
-        <a href="#studio">Студия</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacts">Контакты</a>
-        <a href="#booking" class="btn btn-primary text-center">Записаться</a>
-      </div>
-    </div>
+    <nav class="nav" id="navigation" aria-label="Основная навигация"><a href="#services">Услуги</a><a href="#works">Работы</a><a href="#studio">Студия</a><a href="#equipment">Оборудование</a><a href="#pricing">Цены</a><a href="#directions">Как добраться</a><a href="#contacts">Контакты</a></nav>
+    <a class="header-cta" href="#booking">Записаться</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true"><img src="assets/sound-art.png" alt="" width="1536" height="1024" fetchpriority="high" decoding="async"><canvas class="sound-surface"></canvas><span class="sound-coordinate">01 / SOUND IN MOTION</span></div>
+      <div class="hero-content wrap">
+        <div class="eyebrow hero-eyebrow"><span class="rec-indicator" aria-hidden="true"></span>НЕЗАВИСИМАЯ СТУДИЯ ЗВУКОЗАПИСИ <span class="location">ПОДОЛЬСК</span></div>
+        <h1 id="hero-title" class="idea-title">ИЗ ИДЕИ<br><span>— В ТРЕК.</span></h1>
+        <p class="hero-description">От первого дубля до финального мастера.<br>Поможем твоей музыке звучать по-настоящему.</p>
+        <div class="hero-actions"><a class="button button-green" href="#booking">Записаться</a><a class="listen-link" href="#works"><span class="small-play" aria-hidden="true">▶</span>Послушать работы</a></div>
+      </div>
 
-  <!-- HERO -->
-  <section id="home" class="section">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <span class="badge text-white/80">Подольск · Россия</span>
-        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">Звук, который <span class="text-[var(--rum)]">чувствуется</span></h1>
-        <p class="mt-4 text-white/70 text-lg">Запись вокала и инструментов, сведение, мастеринг, минуса на заказ. Ламповая атмосфера и точный звук.</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#booking" class="btn btn-primary">Записаться</a>
-          <a href="https://t.me/room_studio15" target="_blank" rel="noopener" class="btn btn-outline">Telegram</a>
+
+      <div class="hero-note"><span>ROOM STUDIO</span><span>МЕСТО, ГДЕ ТЫ ЗВУЧИШЬ</span></div>
+      <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Приостановить анимацию" hidden><span class="motion-toggle-symbol" aria-hidden="true">Ⅱ</span><span class="motion-toggle-label">Анимация</span></button>
+      <div class="hero-bottom wrap"><span>ЗАПИСЬ · СВЕДЕНИЕ · МАСТЕРИНГ</span><span>ТВОЯ ИДЕЯ. НАШ ЗВУК.</span><a href="#services">Знакомимся ниже</a></div>
+    </section>
+    <div class="discipline-strip" aria-label="Направления работы"><span>ВОКАЛ</span><i>✳</i><span>ИНСТРУМЕНТЫ</span><i>✳</i><span>СВЕДЕНИЕ</span><i>✳</i><span>МАСТЕРИНГ</span><i>✳</i><span>САУНДДИЗАЙН</span><i>✳</i></div>
+    <section class="section services-section wrap" id="services" aria-labelledby="services-title">
+      <div class="section-heading"><div><p class="eyebrow section-index">01 / ЧТО МЫ ДЕЛАЕМ</p><h2 id="services-title">От идеи<br>до <em>твоего звучания.</em></h2></div><p class="section-intro">Первый трек или следующий релиз.<br>Подключимся на любом этапе<br>и сохраним главное — тебя в музыке.</p></div>
+      <div class="service-list">
+        <details class="service" open><summary><span class="service-number">01</span><span class="service-name">Запись вокала и инструментов</span><span class="service-tag">ПОЙ. ИГРАЙ. СОЗДАВАЙ.</span><span class="plus" aria-hidden="true"></span></summary><div class="service-description"><p>Поймаем характер голоса и живую энергию исполнения. Поможем с разогревом, дублями и выбором лучшего тейка — даже если ты впервые у микрофона.</p><a href="#booking" data-service="Запись вокала / инструментов — 1 час">Обсудить запись</a></div></details>
+        <details class="service"><summary><span class="service-number">02</span><span class="service-name">Сведение и мастеринг</span><span class="service-tag">КАЖДАЯ ДЕТАЛЬ НА МЕСТЕ</span><span class="plus" aria-hidden="true"></span></summary><div class="service-description"><p>Соберём вокал и инструменты в цельную картину. Баланс, глубина и динамика — от отдельных дорожек до финального звучания трека.</p><a href="#booking" data-service="Сведение / мастеринг">Обсудить трек</a></div></details>
+        <details class="service"><summary><span class="service-number">03</span><span class="service-name">Музыка и аранжировки</span><span class="service-tag">ТВОЯ ИДЕЯ ОБРЕТАЕТ ФОРМУ</span><span class="plus" aria-hidden="true"></span></summary><div class="service-description"><p>Сделаем минус под твой голос и стиль. Вместе определим настроение, соберём инструментальную основу и доведём аранжировку.</p><a href="#booking" data-service="Бит / минус / инструментал на заказ">Обсудить идею</a></div></details>
+        <details class="service"><summary><span class="service-number">04</span><span class="service-name">Саунддизайн</span><span class="service-tag">ЗВУК РАССКАЗЫВАЕТ ИСТОРИЮ</span><span class="plus" aria-hidden="true"></span></summary><div class="service-description"><p>Музыка, эффекты и атмосфера для видео, рекламы и коротких роликов. Соединим всё в финальный микс, который работает вместе с изображением.</p><a href="#booking" data-service="Саунддизайн">Обсудить проект</a></div></details>
+      </div>
+    </section>
+    <section class="works-section" id="works" aria-labelledby="works-title">
+      <div class="wrap"><div class="section-heading"><div><p class="eyebrow section-index">02 / СЛУШАЙ, А НЕ ВЕРЬ НА СЛОВО</p><h2 id="works-title">Меньше слов.<br><em>Больше звука.</em></h2></div><p class="section-intro">Наш звук — в наших работах.<br> Надень наушники и послушай.</p></div>
+        <div class="sound-room-scene" id="sound-room">
+      <div class="scene-microphone" aria-hidden="true"><img src="assets/microphone-1973.png" alt="" width="1023" height="1538" loading="lazy" decoding="async"></div>
+      <figure class="room-plan" aria-labelledby="plan-caption">
+        <figcaption id="plan-caption"><span>РУМ <b>2.0</b></span><span>ПЛАН ПРОСТРАНСТВА</span></figcaption>
+        <div class="plan-drawing">
+          <svg class="plan-svg" viewBox="-88 -66 610 760" role="img" aria-labelledby="plan-title plan-description">
+            <title id="plan-title">План нового помещения РУМ СТУДИО</title>
+            <desc id="plan-description">Вид сверху. Длина 6,07 метра, ширина сверху 4,04 метра, снизу 3,63 метра. Два окна слева, вход и уступ справа. Площадь около 22,9 квадратного метра. Высота потолка 4 метра.</desc>
+            <defs>
+              <path id="room-footprint" d="M0 0H404V218H363V607H0Z"/>
+              <clipPath id="room-clip"><use href="#room-footprint"/></clipPath>
+              <pattern id="plan-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#4dff9d" stroke-opacity=".1" stroke-width=".8"/></pattern>
+              <radialGradient id="room-floor"><stop stop-color="#194832" stop-opacity=".65"/><stop offset="1" stop-color="#0a1c13" stop-opacity=".6"/></radialGradient>
+              <filter id="plan-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+            </defs>
+            <g class="plan-room">
+              <use href="#room-footprint" fill="url(#room-floor)"/>
+              <use href="#room-footprint" fill="url(#plan-grid)"/>
+              <g clip-path="url(#room-clip)" aria-hidden="true">
+                <g class="stereo-fallback" fill="none" stroke="#74e6aa" stroke-width="1.1" opacity=".3">
+                  <path d="M64 490A75 75 0 0 1 133 539M67 415A150 150 0 0 1 204 513M70 340A225 225 0 0 1 275 487M301 490A75 75 0 0 0 231 539M298 415A150 150 0 0 0 161 513M295 340A225 225 0 0 0 90 487"/>
+                </g>
+                <foreignObject x="0" y="0" width="404" height="607" class="stereo-field"><canvas xmlns="http://www.w3.org/1999/xhtml" class="stereo-canvas"></canvas></foreignObject>
+              </g>
+              <!-- Dimensions in centimetres from the supplied drawing. The 80 cm door is assumed in that drawing. -->
+              <path class="plan-wall-glow" d="M0 85V0H404V96M404 176V218H363V607H0V486M0 396V206"/>
+              <path class="plan-walls" d="M0 85V0H404V96M404 176V218H363V607H0V486M0 396V206"/>
+              <path class="plan-wall-trace" pathLength="100" d="M0 85V0H404V96M404 176V218H363V607H0V486M0 396V206"/>
+              <g class="plan-windows"><path d="M-3 85V206M3 85V206M-3 396V486M3 396V486"/><path d="M-7 85H7M-7 206H7M-7 396H7M-7 486H7"/></g>
+              <path class="plan-door" d="M404 96A80 80 0 0 0 324 176H404"/>
+              <g class="plan-dimensions"><path d="M0 -15V-42M404 -15V-42M0 -32H404M-45 0H-68M-45 607H-68M-58 0V607M0 622V650M363 622V650M0 639H363"/><path d="M-5 -27L5 -37M399 -27L409 -37M-63 5L-53 -5M-63 612L-53 602M-5 644L5 634M358 644L368 634"/></g>
+              <g class="plan-dimension-text"><text x="202" y="-43" text-anchor="middle">4,04 м</text><text transform="translate(-70 304) rotate(-90)" text-anchor="middle">6,07 м</text><text x="181" y="670" text-anchor="middle">3,63 м</text></g>
+              <g class="plan-labels"><text x="20" y="151">ОКНО 1,21 м</text><text x="20" y="447">ОКНО 0,90 м</text><path d="M415 135H441"/><text x="451" y="141">ВХОД</text></g>
+              <g class="plan-center"><text x="182" y="283" text-anchor="middle" class="plan-room-name">РУМ 2.0</text><text x="182" y="329" text-anchor="middle" class="plan-area">≈ 22,9 м²</text><text x="182" y="356" text-anchor="middle" class="plan-top-view">ВИД СВЕРХУ</text></g>
+              <g class="stereo-sources" aria-hidden="true">
+                <g transform="translate(62 565)"><circle class="source-halo" r="17"/><circle class="source-core" r="4"/><path class="source-aim" d="M7 -10L18 -25M10 -24L18 -25L19 -17"/><text x="-1" y="29" text-anchor="middle">L / 01</text></g>
+                <g transform="translate(302 565)"><circle class="source-halo" r="17"/><circle class="source-core" r="4"/><path class="source-aim" d="M-7 -10L-18 -25M-10 -24L-18 -25L-19 -17"/><text x="1" y="29" text-anchor="middle">R / 02</text></g>
+              </g>
+            </g>
+          </svg>
         </div>
-        <div class="mt-6 text-sm text-white/60 flex items-center gap-4">
-          <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--rum)] animate-pulse"></span> Свободные слоты на этой неделе</span>
-          <span class="hidden md:block">·</span>
-          <span>Первым клиентам — бонусы</span>
+        <div class="plan-key"><span><i class="key-wall"></i>Стены</span><span><i class="key-window"></i>Окна</span><span class="plan-height">ПОТОЛКИ <b>4 м</b></span></div>
+      </figure>
+          <div class="scene-controls"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Приостановить анимацию" hidden><span class="motion-toggle-symbol" aria-hidden="true">Ⅱ</span><span class="motion-toggle-label">Анимация</span></button></div>
         </div>
-      </div>
-      <div>
-        <div class="rounded-2xl overflow-hidden glass relative">
-          <div class="aspect-video bg-black/60">
-            <iframe class="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/_K1p2wUo9Hw?rel=0"
-              title="ROOM STUDIO Promo"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div class="absolute left-4 bottom-4 badge bg-black/50">Промо-ролик · 1 минута</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
- <!-- SERVICES -->
-<section id="services" class="section">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="mb-8 flex items-end justify-between gap-6">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold">Услуги</h2>
-        <p class="text-white/60 mt-2">Прозрачно по ценам, по-взрослому по звуку.</p>
-      </div>
-      <a href="#pricing" class="text-sm text-[var(--rum)]">Смотреть цены →</a>
-    </div>
-
-    <!-- ВАЖНО: один grid-контейнер и ровно 4 дочерних карточки -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="glass rounded-2xl p-5">
-        <div class="text-xl font-semibold">Запись вокала</div>
-        <p class="text-white/70 mt-2">Студийные микрофоны, тихая комната, тёплый приём.</p>
-      </div>
-
-      <div class="glass rounded-2xl p-5">
-        <div class="text-xl font-semibold">Сведение</div>
-        <p class="text-white/70 mt-2">Баланс, глубина, ширина — делаем трек конкурентным.</p>
-      </div>
-
-      <div class="glass rounded-2xl p-5">
-        <div class="text-xl font-semibold">Саунддизайн</div>
-        <p class="text-white/70 mt-2">Создадим звук под видео: музыка, SFX, атмосфера.</p>
-      </div>
-
-      <div class="glass rounded-2xl p-5">
-        <div class="text-xl font-semibold">Минуса на заказ</div>
-        <p class="text-white/70 mt-2">От идеи до аранжировки под твой голос и стиль.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="section">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold">Цены</h2>
-      <p class="text-white/60 mt-2">Честно и понятно. Спецусловия при пакетах.</p>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-white/10 p-6 glass">
-          <div class="badge">Запись</div>
-          <h3 class="mt-3 text-2xl font-bold">от 1000 ₽ / час</h3>
-          <ul class="mt-4 space-y-2 text-white/70 text-sm">
-            <li>Тихая вокальная комната</li>
-            <li>Помощь с дублями и разогревом</li>
-            <li>Контрольные слушания</li>
-          </ul>
-          <a href="#booking" class="btn btn-outline mt-6">Записаться</a>
-        </div>
-        <div class="rounded-2xl border-2 border-[var(--rum)] p-6 bg-black/50 shadow-2xl">
-          <div class="badge border-[var(--rum)]/40">Сведение</div>
-          <h3 class="mt-3 text-2xl font-bold">от 5000 ₽ / трек</h3>
-          <ul class="mt-4 space-y-2 text-white/70 text-sm">
-            <li>Баланс, эквализация, компрессия</li>
-            <li>2 правки включены</li>
-            <li>Форматы WAV/MP3/Stem</li>
-          </ul>
-          <a href="#booking" class="btn btn-primary mt-6">Заказать</a>
-        </div>
-        <div class="rounded-2xl border border-white/10 p-6 glass">
-          <div class="badge">Саунддизайн</div>
-<h3 class="mt-3 text-2xl font-bold">от 7000 ₽ / проект</h3>
-<ul class="mt-4 space-y-2 text-white/70 text-sm">
-  <li>Звук под видео, рекламный ролик или TikTok/Reels</li>
-  <li>Музыка + звуковые эффекты + финальный микс</li>
-  <li>1 правка включена</li>
-</ul>
-<a href="#booking" class="btn btn-outline mt-6">Заказать</a>
+        <div class="player" id="player">
+          <div class="player-cover" aria-hidden="true"><span class="cover-top">ROOM STUDIO / SELECTED SOUND</span><strong>РУМ</strong><span class="cover-bottom">SHOWREEL<br>VOL. 01</span><span class="cover-symbol">✳</span></div>
+          <div class="player-main"><div class="player-title-row"><div><p class="eyebrow">ЗАПИСЬ / СВЕДЕНИЕ / МАСТЕРИНГ</p><h3>Room Studio — Showreel Mix</h3></div><span class="audio-label">STEREO</span></div>
+            <div class="player-controls"><button class="play-button" id="play-button" aria-label="Воспроизвести шоурил" type="button"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/></svg></button><div class="timeline"><div class="waveform" aria-hidden="true"></div><input id="audio-seek" type="range" min="0" max="1000" value="0" aria-label="Позиция воспроизведения"><div class="player-times"><span id="elapsed">0:00</span><span id="duration">—:—</span></div></div></div>
+            <div class="player-bottom"><span id="audio-status" role="status">Нажми play. Почувствуй разницу.</span><button id="mute-button" type="button" aria-label="Выключить звук">Звук включён</button></div>
+          </div><audio id="showreel" preload="metadata" src="assets/showreel.mp3"></audio>
         </div>
       </div>
-      <p class="text-white/50 text-xs mt-4">* Пакеты “Запись + Сведение + Мастеринг” — выгоднее. Спросите про условия.</p>
-    </div>
-  </section>
-
- <!-- WORKS — кастомный плеер поверх видео -->
-<section id="works" class="w-full mt-16">
-
-  <div class="relative w-full overflow-hidden">
-
-    <!-- Видео -->
-    <video
-      id="showreelVideo"
-      class="w-full h-full object-cover"
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="metadata"
-      poster="/images/mix-cover.jpg"
-    >
-      <source src="/media/showreel-cover.mp4" type="video/mp4" />
-    </video>
-    <!-- Оверлей-анимация текста -->
-<video
-  id="overlayText"
-  class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-[12%]
-         w-[80%] md:w-[60%] mix-blend-screen opacity-95"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
->
-  <!-- Если есть версия с альфа-каналом (WebM VP9 + alpha) — ставим её первой -->
-  <source src="/media/works-title.webm" type="video/webm" />
-  <!-- Фолбэк на MP4 (с тёмным/чёрным фоном) -->
-  <source src="/media/наши работы.mp4" type="video/mp4" />
-</video>
-
-    <!-- Тёмное затемнение -->
-    <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
-
-    <!-- Контейнер кнопки + прогресс -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center gap-6 z-10">
-
-      <!-- Кнопка Play/Pause -->
-      <button
-        id="showreelPlayBtn"
-        class="inline-grid place-items-center w-24 h-24 rounded-full bg-[var(--rum)] text-black font-extrabold
-               shadow-[0_12px_40px_rgba(0,255,136,.35)] transition-transform hover:scale-105"
-        aria-label="Воспроизвести шоурил"
-        style="border:none;background:var(--rum);"
-      >
-        <svg id="showreelPlayIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"></path>
-        </svg>
-        <svg id="showreelPauseIcon" width="34" height="34" fill="currentColor" viewBox="0 0 24 24" class="hidden">
-          <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
-        </svg>
-      </button>
-
-      <!-- Эквалайзер -->
-<div id="eqWrap"
-     class="pointer-events-none w-[70%] md:w-[50%] h-10
-            opacity-0 transition-opacity duration-300">
-  <canvas id="eqCanvas" class="w-full h-full"></canvas>
-</div>
-
-      <!-- Кастомный прогресс-бар -->
-      <input
-        id="showreelSeek"
-        type="range"
-        value="0"
-        min="0"
-        max="100"
-        class="w-[60%] md:w-[40%] h-1 rounded-full cursor-pointer
-               appearance-none bg-white/30"
-        style="
-          accent-color: var(--rum);
-        "
-      >
-    </div>
-  </div>
-
-  <!-- скрытый аудио-плеер -->
-  <audio id="showreelAudio" class="hidden">
-    <source src="/media/showreel-mix.mp3" type="audio/mpeg" />
-  </audio>
-
-  <!-- кнопка CTA под блоком -->
-  <div class="mt-6 flex justify-center">
-    <a href="#booking"
-       class="px-8 py-3 rounded-full bg-[var(--rum)] text-black font-bold text-lg shadow-[0_0_30px_rgba(0,255,136,.25)] hover:scale-105 transition-transform">
-      Записаться
-    </a>
-  </div>
-
-</section>
-
-    <!-- Аудио -->
-    <div class="mt-6">
-      <h3 class="font-semibold mb-2 text-lg">ROOM STUDIO — Showreel Mix</h3>
-      <audio controls class="w-full">
-        <source src="/media/showreel-mix.mp3" type="audio/mp3">
-      </audio>
-    </div>
-  </div>
-
-<script>
-  const video = document.getElementById('showreelVideo');
-  const playBtn = document.getElementById('playShowreel');
-
-  playBtn.addEventListener("click", () => {
-    video.muted = false;
-    video.play();
-  });
-</script>
-
-  <!-- STUDIO -->
-  <section id="studio" class="section">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold">Студия</h2>
-      <p class="text-white/60 mt-2">Помещение 14 м² — идеальный контроль и ламповая близость к музыке.</p>
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-  <img loading="lazy" decoding="async" src="/images/studio-room-1.webp" alt="РУМ СТУДИО — вокальная комната" class="rounded-2xl border border-white/10">
-  <img loading="lazy" decoding="async" src="/images/studio-room-2.webp" alt="РУМ СТУДИО — оборудование и пульт" class="rounded-2xl border border-white/10">
-  <img loading="lazy" decoding="async" src="/images/studio-room-3.webp" alt="РУМ СТУДИО — рабочее место звукорежиссёра" class="rounded-2xl border border-white/10">
-</div>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section id="booking" class="section">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold">Записаться в РУМ СТУДИО</h2>
-        <p class="text-white/70 mt-2">Ответим в Telegram, согласуем время и задачу.</p>
-        <ul class="mt-4 text-white/70 text-sm space-y-1">
-          <li>• Первым клиентам — мягкая скидка</li>
-          <li>• Пакеты услуг выгоднее</li>
-          <li>• Быстрая связь в Telegram</li>
-        </ul>
-      </div>
-      <div>
-        <form id="leadForm" class="glass rounded-2xl p-6 space-y-4" novalidate>
-          <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
-          <div>
-            <label class="text-sm text-white/70" for="name">Имя</label>
-            <input class="input" id="name" name="name" placeholder="Ваше имя" minlength="2" required autocomplete="name">
-          </div>
-          <div>
-            <label class="text-sm text-white/70" for="contact">Телефон или Telegram</label>
-            <input class="input" id="contact" name="contact" placeholder="@username или +7" required autocomplete="tel">
-          </div>
-          <div>
-            <label class="text-sm text-white/70" for="service">Услуга</label>
-            <select class="input" id="service" name="service" required>
-              <option value="" disabled selected>Выберите услугу</option>
-              <option>Запись вокала</option>
-              <option>Сведение</option>
-              <option>Мастеринг</option>
-              <option>Минус на заказ</option>
-            </select>
-          </div>
-          <div>
-            <label class="text-sm text-white/70" for="comment">Комментарий</label>
-            <textarea class="input" id="comment" name="comment" rows="3" placeholder="Коротко о задаче и желаемой дате"></textarea>
-          </div>
-          <button id="leadSubmit" class="btn btn-primary w-full" type="submit">Отправить заявку</button>
-          <p id="leadHint" class="text-xs text-white/60">
-            Нажимая кнопку, вы соглашаетесь с
-            <a class="underline" href="/privacy" target="_blank" rel="noopener">политикой обработки персональных данных</a>.
-          </p>
-        </form>
-
-        <!-- сюда выводим кнопку на бота после успеха -->
-        <div id="tgConfirm" class="mt-3 text-sm text-white/80"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold">FAQ</h2>
-      <div class="mt-8 space-y-3">
-        <details class="glass rounded-2xl p-5">
-          <summary class="cursor-pointer font-semibold">Можно ли прийти без опыта записи?</summary>
-          <p class="mt-2 text-white/70">Да. Поможем с разогревом, дыханием, дублями и поведём по процессу.</p>
-        </details>
-        <details class="glass rounded-2xl p-5">
-          <summary class="cursor-pointer font-semibold">Сколько правок включено?</summary>
-          <p class="mt-2 text-white/70">В сведение включено 2 правки, в мастеринг — 1. Дополнительные — по договорённости.</p>
-        </details>
-        <details class="glass rounded-2xl p-5">
-          <summary class="cursor-pointer font-semibold">Можно ли подарочный сертификат?</summary>
-          <p class="mt-2 text-white/70">Да, оформим цифровой сертификат на запись или сведение.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTS -->
-  <section id="contacts" class="section">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold">Контакты</h2>
-        <p class="text-white/70 mt-2">г. Подольск, ул. Дружбы, д. 15 · ежедневно 10:00–22:00</p>
-        <div class="mt-6 space-y-2 text-white/80">
-          <div>Телеграм: <a class="text-[var(--rum)]" href="https://t.me/room_studio15" target="_blank" rel="noopener">@room_studio15</a></div>
-          <div>VK: <a class="text-[var(--rum)]" href="https://vk.com/room_sound" target="_blank" rel="noopener">vk.com/room_sound</a></div>
-          <div>Instagram*: <a class="text-[var(--rum)]" href="https://www.instagram.com/room.studio15/" target="_blank" rel="noopener">@room.studio15</a></div>
-          <div>YouTube: <a class="text-[var(--rum)]" href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q" target="_blank" rel="noopener">ROOM STUDIO</a></div>
-          <div>Телефон: <span class="text-[var(--rum)]">+7 985 925-38-08</span></div>
-          <div>Email: <a class="text-[var(--rum)]" href="mailto:roomstudio15@yandex.com">roomstudio15@yandex.com</a></div>
+    </section>
+    <section class="section gallery-section wrap" id="studio" aria-labelledby="studio-title">
+      <div class="section-heading"><div><p class="eyebrow section-index">03 / ВНУТРИ РУМ</p><h2 id="studio-title">Загляни<br><em>в наш РУМ.</em></h2></div><p class="section-intro">Пространство, в котором<br>твои идеи становятся музыкой.</p></div>
+      <div class="studio-space">
+        <figure class="studio-photo gallery-frame">
+          <div class="studio-photo-crop"><img src="assets/room-2-studio.png" alt="Новая студия РУМ: высокие потолки, акустические панели, рабочее место с мониторами, гитара и ударные в зелёном свете" width="960" height="1280" loading="lazy" decoding="async"><span class="photo-location">РУМ 2.0 / ПОДОЛЬСК</span></div>
+          <figcaption><span>Тот самый РУМ. Изнутри.</span><span>01 / ПРОСТРАНСТВО</span></figcaption>
+        </figure>
+        <div class="studio-facts">
+          <div class="space-intro"><p class="eyebrow section-index">НОВОЕ ПРОСТРАНСТВО. НАШ ЗВУК.</p><h3>Больше воздуха.<br><em>Ближе к музыке.</em></h3><p>Высокие потолки, мягкий зелёный свет и место, в котором легко сосредоточиться на своём звучании.</p></div>
+          <div class="space-stat"><span class="stat-number">4 <small>м</small></span><div><h4>Высота потолков</h4><p>Пространство, в котором свободно дышится.</p></div><span class="height-ruler" aria-hidden="true"></span></div>
+          <div class="space-stat"><span class="stat-number">22,9 <small>м²</small></span><div><h4>Площадь студии</h4><p>Около 23 м² для твоих идей, голоса и инструментов.</p></div></div>
+          <div class="acoustic-note"><span class="acoustic-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><div><h4>Отличная акустика</h4><p>Акустические панели и внимательная работа с каждой деталью звука.</p></div></div>
+          <a href="#booking" class="button button-outline">Записаться</a>
         </div>
-        <div class="mt-6 flex gap-3">
-          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://t.me/room_studio15">Telegram</a>
-          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://vk.com/room_sound">VK</a>
-          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.instagram.com/room.studio15/">Instagram</a>
-          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q">YouTube</a>
+      </div>
+        </section>
+    <section class="section equipment-section" id="equipment" aria-labelledby="equipment-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow section-index">04 / ИНСТРУМЕНТЫ НАШЕГО ЗВУКА</p><h2 id="equipment-title">Наше<br><em>оборудование.</em></h2></div><p class="section-intro">Микрофоны, аудиосистемы,<br> мониторы и инструменты —<br> всё для работы над твоим звуком.</p></div>
+      <nav class="equipment-tabs" aria-label="Категории оборудования">
+        <a id="equipment-tab-microphones" href="#gear-microphones"><span>01</span>Микрофоны</a>
+        <a id="equipment-tab-audio" href="#gear-audio"><span>02</span>Аудиосистемы</a>
+        <a id="equipment-tab-monitors" href="#gear-monitors"><span>03</span>Мониторы</a>
+        <a id="equipment-tab-instruments" href="#gear-instruments"><span>04</span>Инструменты</a>
+      </nav>
+      <div class="equipment-deck">
+        <div class="equipment-panel" id="gear-microphones" aria-labelledby="equipment-tab-microphones">
+          <figure class="equipment-photo equipment-photo-mic"><span class="equipment-photo-index" aria-hidden="true">01 / MIC</span><div class="equipment-image-stage"><img src="assets/microphone-1973.png" alt="Микрофон СОЮЗ 1973 — фотореференс для будущей галереи оборудования" width="1023" height="1538" loading="lazy" decoding="async"></div><figcaption><span>Крупным планом</span><span>ФОТОРЕФЕРЕНС</span></figcaption></figure>
+          <div class="equipment-copy"><p class="eyebrow equipment-type">ГОЛОС / ИНСТРУМЕНТЫ</p><h3>Микрофоны</h3><p class="equipment-description">Всё начинается с источника звука. Здесь будет список микрофонов для записи голоса и инструментов.</p><div class="equipment-list-preview" aria-label="Список микрофонов пока не заполнен"><div class="equipment-list-heading"><span>СОСТАВ ОБОРУДОВАНИЯ</span><span>СКОРО</span></div><p class="equipment-pending">Модели добавим позже.</p><div class="equipment-empty-rows" aria-hidden="true"><div><span>01</span><i></i><b></b></div><div><span>02</span><i></i><b></b></div><div><span>03</span><i></i><b></b></div></div></div><p class="equipment-footnote">Список и фотографии оборудования дополняются.</p></div>
         </div>
-        <p class="text-xs text-white/40 mt-4">*Meta Platforms Inc. признана экстремистской организацией на территории РФ.</p>
+        <div class="equipment-panel" id="gear-audio" aria-labelledby="equipment-tab-audio">
+          <figure class="equipment-photo equipment-photo-empty"><span class="equipment-photo-index" aria-hidden="true">02 / AUDIO</span><div class="equipment-photo-reserved"><span class="equipment-frame-corners" aria-hidden="true"></span><p>Аудиосистемы<span>Фотографии скоро</span></p></div><figcaption><span>В деталях</span><span>МЕСТО ДЛЯ ФОТО</span></figcaption></figure>
+          <div class="equipment-copy"><p class="eyebrow equipment-type">ЗАПИСЬ / ОБРАБОТКА / ВОСПРОИЗВЕДЕНИЕ</p><h3>Аудиосистемы</h3><p class="equipment-description">Здесь соберём аудиооборудование студии: названия, модели и основные особенности.</p><div class="equipment-list-preview" aria-label="Список аудиосистем пока не заполнен"><div class="equipment-list-heading"><span>СОСТАВ ОБОРУДОВАНИЯ</span><span>СКОРО</span></div><p class="equipment-pending">Модели добавим позже.</p><div class="equipment-empty-rows" aria-hidden="true"><div><span>01</span><i></i><b></b></div><div><span>02</span><i></i><b></b></div><div><span>03</span><i></i><b></b></div></div></div><p class="equipment-footnote">Список и фотографии оборудования дополняются.</p></div>
+        </div>
+        <div class="equipment-panel" id="gear-monitors" aria-labelledby="equipment-tab-monitors">
+          <figure class="equipment-photo equipment-photo-empty"><span class="equipment-photo-index" aria-hidden="true">03 / MONITORING</span><div class="equipment-photo-reserved"><span class="equipment-frame-corners" aria-hidden="true"></span><p>Мониторы<span>Фотографии скоро</span></p></div><figcaption><span>Контроль звука</span><span>МЕСТО ДЛЯ ФОТО</span></figcaption></figure>
+          <div class="equipment-copy"><p class="eyebrow equipment-type">БАЛАНС / ДЕТАЛИ / КОНТРОЛЬ</p><h3>Мониторы</h3><p class="equipment-description">Здесь покажем студийные мониторы, на которых слушаем и доводим звучание треков.</p><div class="equipment-list-preview" aria-label="Список мониторов пока не заполнен"><div class="equipment-list-heading"><span>СОСТАВ ОБОРУДОВАНИЯ</span><span>СКОРО</span></div><p class="equipment-pending">Модели добавим позже.</p><div class="equipment-empty-rows" aria-hidden="true"><div><span>01</span><i></i><b></b></div><div><span>02</span><i></i><b></b></div><div><span>03</span><i></i><b></b></div></div></div><p class="equipment-footnote">Список и фотографии оборудования дополняются.</p></div>
+        </div>
+        <div class="equipment-panel" id="gear-instruments" aria-labelledby="equipment-tab-instruments">
+          <figure class="equipment-photo equipment-photo-empty"><span class="equipment-photo-index" aria-hidden="true">04 / INSTRUMENTS</span><div class="equipment-photo-reserved"><span class="equipment-frame-corners" aria-hidden="true"></span><p>Инструменты<span>Фотографии скоро</span></p></div><figcaption><span>Живое исполнение</span><span>МЕСТО ДЛЯ ФОТО</span></figcaption></figure>
+          <div class="equipment-copy"><p class="eyebrow equipment-type">ИГРАЙ / ПРОБУЙ / СОЗДАВАЙ</p><h3>Инструменты</h3><p class="equipment-description">Здесь будет список инструментов для студийных сессий — с фотографиями и описанием каждой модели.</p><div class="equipment-list-preview" aria-label="Список инструментов пока не заполнен"><div class="equipment-list-heading"><span>СОСТАВ ОБОРУДОВАНИЯ</span><span>СКОРО</span></div><p class="equipment-pending">Модели добавим позже.</p><div class="equipment-empty-rows" aria-hidden="true"><div><span>01</span><i></i><b></b></div><div><span>02</span><i></i><b></b></div><div><span>03</span><i></i><b></b></div></div></div><p class="equipment-footnote">Список и фотографии оборудования дополняются.</p></div>
+        </div>
       </div>
-      <div class="rounded-2xl overflow-hidden border border-white/10">
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A65a86f7b7fdd2f0bff&source=constructor"
-                width="100%" height="360" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                title="Карта проезда РУМ СТУДИО"></iframe>
+    </div></section>
+    <section class="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow section-index">05 / ПРОЗРАЧНО О СТОИМОСТИ</p><h2 id="pricing-title">Выбери свою<br><em>точку входа.</em></h2></div><p class="section-intro">Запись, обработка и музыка на заказ.<br> Выбери, с чего начнём.</p></div>
+      <div class="price-deposit"><span>Предоплата</span><strong>1 000 <small>₽</small></strong></div>
+      <div class="price-grid price-catalog">
+        <article class="price-card"><div class="price-label"><span>01 / ЗАПИСЬ</span><span>1 ЧАС</span></div><h3>Запись вокала<br>и инструментов</h3><p class="price">1 500 <small>₽</small></p><a href="#booking" class="button button-outline" data-service="Запись вокала / инструментов — 1 час" aria-label="Записаться на час записи вокала или инструментов">Записаться</a></article>
+        <article class="price-card price-featured"><div class="price-label"><span>02 / СЕССИЯ</span><span>8 ЧАСОВ</span></div><h3>Сессия<br>записи</h3><p class="price">8 000 <small>₽</small></p><a href="#booking" class="button button-green" data-service="Сессия записи — 8 часов" aria-label="Записаться на сессию записи 8 часов">Записаться</a></article>
+        <article class="price-card"><div class="price-label"><span>03 / ТЮНИНГ</span><span>ПИТЧ И ТАЙМИНГ</span></div><h3>Тюнинг вокала<br>и инструментов</h3><p class="price">5 000 <small>₽</small></p><a href="#booking" class="button button-outline" data-service="Тюнинг вокала / инструментов" aria-label="Записаться на тюнинг вокала или инструментов">Записаться</a></article>
+        <article class="price-card"><div class="price-label"><span>04 / ОБРАБОТКА</span></div><h3>Сведение /<br>мастеринг</h3><p class="price">5 000 <small>₽</small></p><a href="#booking" class="button button-outline" data-service="Сведение / мастеринг" aria-label="Записаться на сведение и мастеринг">Записаться</a></article>
+        <article class="price-card"><div class="price-label"><span>05 / ДЕМО</span></div><h3>Демо</h3><p class="price">1 000 <small>₽</small></p><a href="#booking" class="button button-outline" data-service="Демо" aria-label="Записаться на демо">Записаться</a></article>
+        <article class="price-card"><div class="price-label"><span>06 / МУЗЫКА НА ЗАКАЗ</span></div><h3>Бит / минус /<br>инструментал</h3><p class="price">5 000 <small>₽</small></p><a href="#booking" class="button button-outline" data-service="Бит / минус / инструментал на заказ" aria-label="Заказать бит, минус или инструментал">Записаться</a></article>
       </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-white/60 text-sm">
-      <div>© <span id="year"></span> РУМ СТУДИО. Все права защищены.</div>
-      <div class="flex items-center gap-4">
-        <a href="#booking" class="btn btn-outline">Онлайн-запись</a>
+    </div></section>
+    <section class="section process-section wrap" aria-labelledby="process-title"><div class="process-heading"><p class="eyebrow section-index">06 / ВСЁ ПРОЩЕ, ЧЕМ КАЖЕТСЯ</p><h2 id="process-title">Просто начни.</h2></div><div class="process-grid"><article><span>01</span><h3>Расскажи об идее</h3><p>Пришли демо, референс или просто опиши, что хочешь сделать. Вместе найдём точку старта.</p></article><article><span>02</span><h3>Создадим звук</h3><p>Согласуем задачу и время. Запишем материал, попробуем варианты и выберем лучшее.</p></article><article><span>03</span><h3>Доведём до результата</h3><p>Соберём трек, обсудим детали и внесём правки. Чтобы финальная версия звучала по-твоему.</p></article></div></section>
+    <section class="section faq-section wrap" id="faq" aria-labelledby="faq-title"><div><p class="eyebrow section-index">ЕСТЬ ВОПРОСЫ?</p><h2 id="faq-title">Разберёмся.</h2><p class="faq-aside">А если твоего вопроса здесь нет —<br><a href="https://t.me/room_studio15" target="_blank" rel="noopener">напиши нам в Telegram.</a></p></div><div class="faq-list"><details><summary>Я никогда не записывался. Можно к вам?<span class="plus" aria-hidden="true"></span></summary><p>Конечно. Поможем с разогревом, дыханием и дублями, объясним процесс. Опыт записи не обязателен.</p></details><details><summary>Сколько правок включено?<span class="plus" aria-hidden="true"></span></summary><p>Обсудим объём правок при согласовании проекта.</p></details><details><summary>Можно подарить запись в студии?<span class="plus" aria-hidden="true"></span></summary><p>Да, можно оформить цифровой подарочный сертификат на запись или сведение. Напиши нам — подберём формат.</p></details><details><summary>Что прислать, чтобы обсудить проект?<span class="plus" aria-hidden="true"></span></summary><p>Расскажи о задаче и желаемом результате. Если есть демо или треки, на которые хочется ориентироваться, приложи их к сообщению.</p></details></div></section>
+    <section class="section directions-section" id="directions" aria-labelledby="directions-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow section-index">07 / ВСТРЕТИМСЯ В СТУДИИ</p><h2 id="directions-title">Как до нас<br><em>добраться.</em></h2></div><p class="section-intro">От точки на карте<br>до двери студии — шаг за шагом.</p></div>
+      <div class="directions-grid">
+        <div class="map-reserved" role="img" aria-label="Место для карты нового адреса. Карта и координаты пока не добавлены."><span class="map-caption">ПОДОЛЬСК / РУМ СТУДИО</span><div class="map-center"><svg viewBox="0 0 48 56" width="42" height="49" fill="none" aria-hidden="true"><path d="M24 52S5 33 5 22a19 19 0 1 1 38 0c0 11-19 30-19 30Z" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="22" r="6" stroke="currentColor" stroke-width="2"/></svg><h3>Карта нового адреса</h3><p>Комсомольская, 1к62<br>Территория Зингер</p></div><span class="map-caption map-bottom">МЕСТО ДЛЯ КАРТЫ</span></div>
+        <div class="arrival-panel"><p class="eyebrow section-index">ТВОЯ ТОЧКА НАЗНАЧЕНИЯ</p><h3>РУМ СТУДИО</h3><p class="arrival-city">г. Подольск</p><p class="arrival-address">ул. Комсомольская, 1к62<span>Территория Зингер</span></p><div class="arrival-hours"><span>Часы работы</span><strong>Ежедневно, 10:00–22:00</strong></div><a class="arrival-phone" href="tel:+79859253808">+7 985 925-38-08</a><div class="contact-links"><a href="https://t.me/room_studio15" target="_blank" rel="noopener">Telegram</a><a href="https://vk.com/room_sound" target="_blank" rel="noopener">ВКонтакте</a></div><a href="#booking" class="button button-green">Записаться</a></div>
       </div>
-    </div>
-  </footer>
-
-  <script>
-    // год
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // мобильное меню с a11y
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', String(!expanded));
-    });
-
-    // отправка формы: /api/telegram -> после успеха кнопка на @Room_st_bot
-    const form = document.getElementById('leadForm');
-    const btn  = document.getElementById('leadSubmit');
-    const hint = document.getElementById('leadHint');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(form);
-      // honeypot
-      if ((fd.get('website') || '').trim() !== '') return;
-
-      const payload = {
-        name:    (fd.get('name')||'').toString().trim(),
-        contact: (fd.get('contact')||'').toString().trim(),
-        service: (fd.get('service')||'').toString(),
-        comment: (fd.get('comment')||'').toString().trim(),
-        page:    location.href,
-        ts:      new Date().toISOString()
-      };
-
-      // базовая валидация перед отправкой
-      if (!payload.name || payload.name.length < 2) {
-        hint.textContent = 'Укажите имя (минимум 2 символа).';
-        return;
-      }
-      const okContact = /^@?[a-zA-Z0-9_]{3,32}$/.test(payload.contact) || /^\+?\d[\d\s\-()]{8,}$/.test(payload.contact);
-      if (!okContact) {
-        hint.textContent = 'Укажите корректный Telegram (@username) или телефон.';
-        return;
-      }
-      if (!payload.service) {
-        hint.textContent = 'Выберите услугу.';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Отправляем…';
-      hint.textContent = '';
-
-      try {
-        const res = await fetch('/api/telegram', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-
-        if (res.ok && data?.ok) {
-          form.reset();
-          hint.textContent = '✅ Спасибо! Заявка отправлена. Мы свяжемся с вами в Telegram.';
-          const box = document.getElementById('tgConfirm');
-          box.innerHTML =
-            'Чтобы получить мгновенное подтверждение, нажмите: ' +
-            '<a class="inline-block mt-2 px-3 py-2 rounded-lg font-semibold text-black" ' +
-            'style="background:var(--rum)" href="https://t.me/Room_st_bot?start=lead" target="_blank" rel="noopener">Открыть бота</a>';
-        } else {
-          throw new Error(data?.error || 'Ошибка отправки');
-        }
-      } catch (err) {
-        console.error(err);
-        hint.innerHTML = '⚠️ Не удалось отправить. Напишите нам в Telegram: ' +
-          '<a class="underline" href="https://t.me/room_studio15" target="_blank" rel="noopener">@room_studio15</a>';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Отправить заявку';
-      }
-    });
-  </script>
-  <script>
-(() => {
-  // Базовые элементы
-  const audio     = document.getElementById('showreelAudio');
-  const playBtn   = document.getElementById('showreelPlayBtn');
-  const iconPlay  = document.getElementById('showreelPlayIcon');
-  const iconPause = document.getElementById('showreelPauseIcon');
-  const seek      = document.getElementById('showreelSeek');
-
-  // Эквалайзер
-  const eqWrap   = document.getElementById('eqWrap');
-  const eqCanvas = document.getElementById('eqCanvas');
-  const eqCtx    = eqCanvas ? eqCanvas.getContext('2d') : null;
-
-  if (!audio || !playBtn || !seek) return;
-
-  let seeking = false;
-  let rafId = null;
-
-  // Web Audio
-  let audioCtx = null, analyser = null, source = null, dataArray = null;
-
-  function toggleIcons(playing) {
-    if (playing) {
-      iconPlay && iconPlay.classList.add('hidden');
-      iconPause && iconPause.classList.remove('hidden');
-    } else {
-      iconPause && iconPause.classList.add('hidden');
-      iconPlay && iconPlay.classList.remove('hidden');
-    }
-  }
-
-  async function ensureAudioGraph() {
-    if (audioCtx) {
-      if (audioCtx.state === 'suspended') await audioCtx.resume();
-      return;
-    }
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 256;
-    const len = analyser.frequencyBinCount;
-    dataArray = new Uint8Array(len);
-
-    source = audioCtx.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-  }
-
-  // === Эквалайзер ===
-  function resizeEqCanvas() {
-    if (!eqCanvas) return;
-    const dpr = window.devicePixelRatio || 1;
-    const w = eqCanvas.clientWidth;
-    const h = eqCanvas.clientHeight;
-    if (w === 0 || h === 0) return;
-    eqCanvas.width = Math.floor(w * dpr);
-    eqCanvas.height = Math.floor(h * dpr);
-    eqCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function roundRect(ctx, x, y, w, h, r) {
-    r = Math.min(r, w/2, h/2);
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-  }
-
-  function drawEq() {
-    if (!analyser || !eqCtx || !eqCanvas) return;
-    resizeEqCanvas();
-    const w = eqCanvas.clientWidth;
-    const h = eqCanvas.clientHeight;
-
-    eqCtx.clearRect(0, 0, w, h);
-    analyser.getByteFrequencyData(dataArray);
-
-    const bars = 32;
-    const step = Math.floor(dataArray.length / bars);
-    const barW = w / bars;
-
-    for (let i = 0; i < bars; i++) {
-      const v = dataArray[i * step] / 255;     // 0..1
-      const bh = Math.max(2, v * h);
-      const x = i * barW + barW * 0.18;
-      const y = h - bh;
-      const rw = barW * 0.64;
-      const r  = Math.min(6, rw * 0.35);
-
-      eqCtx.fillStyle = 'rgba(0,255,136,0.95)';          // var(--rum)
-      eqCtx.shadowColor = 'rgba(0,255,136,0.55)';
-      eqCtx.shadowBlur = 10;
-
-      roundRect(eqCtx, x, y, rw, bh, r);
-      eqCtx.fill();
-    }
-
-    rafId = requestAnimationFrame(drawEq);
-  }
-
-  function startEq() {
-    if (eqWrap) eqWrap.style.opacity = '1';
-    cancelAnimationFrame(rafId);
-    drawEq();
-  }
-
-  function stopEq() {
-    if (eqWrap) eqWrap.style.opacity = '0';
-    cancelAnimationFrame(rafId);
-    if (eqCtx && eqCanvas) eqCtx.clearRect(0, 0, eqCanvas.clientWidth, eqCanvas.clientHeight);
-  }
-
-  // === Управление плеером ===
-  playBtn.addEventListener('click', async () => {
-    try {
-      await ensureAudioGraph();       // инициализируем/возобновляем AudioContext
-      if (audio.paused) {
-        await audio.play();
-      } else {
-        audio.pause();
-      }
-    } catch (e) {
-      // Браузер может блокировать автоплей — ничего страшного
-      console.warn(e);
-    }
-  });
-
-  // Обновляем ползунок во время проигрывания
-  audio.addEventListener('timeupdate', () => {
-    if (seeking || !isFinite(audio.duration) || audio.duration === 0) return;
-    seek.value = (audio.currentTime / audio.duration) * 100;
-  });
-
-  // Пользователь двигает ползунок
-  seek.addEventListener('input', () => {
-    seeking = true;
-    if (!isFinite(audio.duration) || audio.duration === 0) return;
-    audio.currentTime = (seek.value / 100) * audio.duration;
-  });
-  seek.addEventListener('change', () => {
-    seeking = false;
-  });
-
-  // События аудио — иконки и эквалайзер
-  audio.addEventListener('play',  () => { toggleIcons(true);  startEq(); });
-  audio.addEventListener('pause', () => { toggleIcons(false); stopEq(); });
-  audio.addEventListener('ended', () => {
-    toggleIcons(false);
-    stopEq();
-    seek.value = 0;
-  });
-
-  // Адаптация под ресайз
-  window.addEventListener('resize', resizeEqCanvas, { passive: true });
-
-})();
-</script>
+      <div class="wayfinding-row"><div class="route-preview"><p class="eyebrow">ПУТЬ ОТ УЛИЦЫ ДО СТУДИИ</p><ol class="route-steps"><li><span>01</span><strong>Ориентир</strong></li><li class="route-arrow" aria-hidden="true">→</li><li><span>02</span><strong>Вход</strong></li><li class="route-arrow" aria-hidden="true">→</li><li><span>03</span><strong>РУМ</strong></li></ol><p class="route-note">Здесь будут фотографии входа и подсказки со стрелками.</p></div><div class="video-reserved"><span class="video-reserved-icon" aria-hidden="true">▶</span><div><span class="eyebrow">ВИДЕОМАРШРУТ / СКОРО</span><h3>Покажем, как пройти</h3><p>Место для короткого видео от улицы до двери.</p></div></div></div>
+    </div></section>
+    <section class="booking-section" id="booking" aria-labelledby="booking-title"><div class="wrap booking-grid"><div><p class="eyebrow section-index">СЛЕДУЮЩИЙ ТРЕК НАЧИНАЕТСЯ ЗДЕСЬ</p><h2 id="booking-title">ДАВАЙ<br><span>ЗАЗВУЧИМ.</span></h2><p>Заполни короткую анкету.<br>Обсудим проект, подберём формат и время.</p><a class="telegram-link" href="https://t.me/room_studio15" target="_blank" rel="noopener">@room_studio15 <span>TELEGRAM</span></a><div class="booking-contacts"><a href="tel:+79859253808">+7 985 925-38-08</a><a href="https://vk.com/room_sound" target="_blank" rel="noopener">ВКонтакте</a><a href="mailto:roomstudio15@yandex.com">roomstudio15@yandex.com</a></div></div><form id="project-form" aria-labelledby="questionnaire-title"><h3 id="questionnaire-title">Анкета для записи</h3><div class="form-row"><label>Как тебя зовут<input name="name" autocomplete="given-name" placeholder="Твоё имя" required maxlength="80"></label><label>Номер телефона<input type="tel" name="contact" autocomplete="tel" placeholder="+7 (___) ___-__-__" required maxlength="32"></label></div><div class="form-row"><label>Telegram <span class="optional-label">необязательно</span><input name="telegram" placeholder="@username" maxlength="100" autocapitalize="off"></label><label>Над чем поработаем?<select name="service" id="service"><option>Запись вокала / инструментов — 1 час</option><option>Сессия записи — 8 часов</option><option>Тюнинг вокала / инструментов</option><option>Сведение / мастеринг</option><option>Демо</option><option>Бит / минус / инструментал на заказ</option><option>Саунддизайн</option><option>Трек под ключ</option></select></label></div><label>Немного о проекте<textarea name="comment" rows="2" placeholder="Идея, желаемая дата, референсы…" maxlength="2000"></textarea></label><button class="button button-green" type="submit">Посмотреть анкету</button><p class="form-note">Подготовим сообщение: скопируй его и отправь нам в Telegram.</p></form></div></section>
+    <footer class="footer" id="contacts"><div class="wrap"><div class="footer-top"><a href="#home" class="brand brand-primary" aria-label="РУМ СТУДИО — наверх"><img class="brand-image" src="assets/rumstudio-logo-transparent.png" alt="РУМСТУДИО" width="2172" height="724" decoding="async"></a><p>Из идеи —<br>в трек.</p><div><span class="footer-label">ПРИХОДИ</span><p>г. Подольск, ул. Комсомольская, 1к62<br>Территория Зингер</p><span class="footer-muted">Ежедневно, 10:00–22:00</span><a href="#directions" class="footer-route">Как добраться</a></div><div><span class="footer-label">БУДЕМ НА СВЯЗИ</span><a class="footer-phone" href="tel:+79859253808">+7 985 925-38-08</a><a class="footer-muted" href="mailto:roomstudio15@yandex.com">roomstudio15@yandex.com</a></div></div><div class="sonic-signature" aria-hidden="true"><div class="signature-meta"><span>ТВОЯ ИДЕЯ. НАШ ЗВУК.</span><span>ROOM STUDIO / 2.0</span></div><div class="signature-stage"><span class="signature-word">РУМ.</span><span class="signature-echo">РУМ.</span><div class="signature-rings"><i></i><i></i><i></i></div></div><div class="signature-baseline"><span>ЗАПИСЬ</span><span>СВЕДЕНИЕ</span><span>МАСТЕРИНГ</span></div></div><div class="footer-bottom"><span>© 2026 РУМ СТУДИО</span><div><a href="https://t.me/room_studio15" target="_blank" rel="noopener">TELEGRAM</a><a href="https://vk.com/room_sound" target="_blank" rel="noopener">VK</a><a href="https://www.youtube.com/channel/UCOny814J_4fY1OKJG99IR7Q" target="_blank" rel="noopener">YOUTUBE</a></div><a href="#home">НАВЕРХ</a></div></div></footer>
+    <dialog id="message-dialog" aria-labelledby="message-title"><button class="dialog-close" type="button" aria-label="Закрыть окно">×</button><p class="eyebrow section-index">ЕЩЁ ОДИН ШАГ</p><h2 id="message-title">Познакомимся?</h2><p>Сообщение готово. Скопируй его и отправь нам в Telegram, чтобы обсудить проект.</p><label for="message-preview" class="sr-only">Текст сообщения</label><textarea id="message-preview" readonly rows="8"></textarea><div class="dialog-actions"><button id="copy-message" class="button button-green" type="button">Скопировать</button><a class="button button-outline" href="https://t.me/room_studio15" target="_blank" rel="noopener">Открыть Telegram</a></div><p class="copy-status" id="copy-status" role="status">Сообщение пока никуда не отправлено.</p></dialog>
+  </main>
+  <script src="script.js"></script>
+  <script src="room-motion.js"></script>
+  <script src="sound-motion.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
