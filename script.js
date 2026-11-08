@@ -237,3 +237,34 @@ if (equipmentTabs) {
     if (index >= 0) selectEquipment(index);
   });
 }
+
+// Accessible photo viewer; image links remain usable without JavaScript.
+window.addEventListener('DOMContentLoaded', () => {
+  const links = [...document.querySelectorAll('[data-studio-photo]')];
+  const dialog = document.getElementById('studio-lightbox');
+  if (!dialog || !links.length) return;
+  const image = dialog.querySelector('img');
+  const caption = dialog.querySelector('p');
+  let index = 0;
+  function show(next) {
+    index = (next + links.length) % links.length;
+    image.src = links[index].href;
+    image.alt = links[index].querySelector('img').alt;
+    caption.textContent = `${String(index + 1).padStart(2,'0')} / ${links.length} — ${links[index].dataset.caption}`;
+  }
+  links.forEach((link,i) => link.addEventListener('click', event => {
+    if(event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault(); show(i); dialog.showModal();
+  }));
+  dialog.querySelector('.studio-lightbox-close').addEventListener('click',()=>dialog.close());
+  dialog.querySelector('[data-gallery-prev]').addEventListener('click',()=>show(index-1));
+  dialog.querySelector('[data-gallery-next]').addEventListener('click',()=>show(index+1));
+  dialog.addEventListener('keydown',event=>{
+    if(event.key==='ArrowRight'){event.preventDefault();show(index+1)}
+    if(event.key==='ArrowLeft'){event.preventDefault();show(index-1)}
+  });
+  dialog.addEventListener('click',event=>{
+    const box=dialog.getBoundingClientRect();
+    if(event.target===dialog && (event.clientX<box.left || event.clientX>box.right || event.clientY<box.top || event.clientY>box.bottom)) dialog.close();
+  });
+});
